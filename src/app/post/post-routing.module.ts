@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'post',
+    redirectTo: 'feed',
     pathMatch: 'full'
   },
   {
-    path: '',
-    loadChildren: () => import('./post/post-routing.module').then(m => m.PostRoutingModule)
+    path: 'feed',
+    component: FeedComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class PostRoutingModule { }

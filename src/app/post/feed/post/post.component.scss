@@ -1,0 +1,62 @@
+.readme-post-avatar {
+  min-width: 45px;
+  height: 45px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    display: flex;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+  }
+}
+
+.readme-post-content {
+  display: block;
+  overflow-y: hidden;
+
+  .readme-post-description-short {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .readme-post-read-more-button {
+    color: rgba(0,0,0,0.5);
+  }
+
+  .readme-post-books {
+    width: auto;
+    height: 190px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .readme-post-book-card {
+      flex: 0 0 auto;
+      padding: 0 4px;
+      width: 110px;
+
+      img {
+        border-radius: 8px;
+      }
+
+      .readme-post-book-card-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /** número de linhas que você quer exibir */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1;
+        font-size: 0.7rem;
+        text-align: center;
+      }
+    }
+  }
+
+}
