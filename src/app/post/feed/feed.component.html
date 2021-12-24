@@ -1,5 +1,8 @@
 <div class="mb-2 mt-2">
-  <app-post *ngFor="let post of postItems"
-    [post]="post"
-  ></app-post>
+  <div *ngFor="let post of postItems">
+    <div class="container">
+      <app-post [post]="post"></app-post>
+    </div>
+    <mat-divider class="mt-2 mb-2"></mat-divider>
+  </div>
 </div>

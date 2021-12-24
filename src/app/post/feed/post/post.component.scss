@@ -1,21 +1,25 @@
-.readme-post-avatar {
-  min-width: 45px;
-  height: 45px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-
-  img {
-    display: flex;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
-  }
-}
-
 .readme-post-content {
   display: block;
   overflow-y: hidden;
+
+  .readme-post-avatar {
+    min-width: 45px;
+    height: 45px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      display: flex;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .readme-post-user-meta {
+    font-size: 0.8rem;
+  }
 
   .readme-post-description-short {
     display: -webkit-box;
@@ -46,15 +50,15 @@
         border-radius: 8px;
       }
 
-      .readme-post-book-card-title {
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /** número de linhas que você quer exibir */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1;
+      .readme-post-book-description {
+        line-height: 1.2;
         font-size: 0.7rem;
-        text-align: center;
+
+        .readme-post-book-line {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     }
   }

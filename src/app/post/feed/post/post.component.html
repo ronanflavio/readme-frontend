@@ -1,36 +1,43 @@
-<div class="d-flex align-items-start justify-content-start">
-  <div class="readme-post-avatar mr-2">
-    <img [src]="post.user.avatar">
-  </div>
-  <div class="readme-post-content">
-    <div class="mb-2 d-flex align-items-center justify-content-start">
-      <a href="#">
-        <strong>{{ post.user.name }}</strong>
-      </a>
-      <span class="mr-2 ml-2">·</span>
-      <a href="#">
-        35 min
-      </a>
-    </div>
-    <div class="mb-2">
-      <span [innerHtml]="post.message"
-        [class.readme-post-description-short]="post.truncate"
-      ></span>
-      <a href="javascript:void(0);"
-        class="readme-post-read-more-button"
-        [hidden]="!post.truncate"
-        (click)="readMore(post)">ler mais</a>
-    </div>
-    <div class="readme-post-books">
-      <div *ngFor="let book of post.books"
-        class="readme-post-book-card">
-        <img [src]="book.image">
-        <div class="readme-post-book-card-title">
-          <span>{{ book.title }}</span>
-          <span class="mr-1 ml-1">·</span>
-          <span>{{ book.authors[0] }}</span>
-        </div>
+<div class="readme-post-content">
+  <div class="mb-2 d-flex align-items-center justify-content-between">
+    <a href="javascript:void(0);" class="d-flex flex-row">
+      <div class="readme-post-avatar mr-2">
+        <img [src]="post.user.avatar">
       </div>
+      <div class="d-flex flex-column justify-content-center">
+        <strong>{{ post.user.name }}</strong>
+        <span class="readme-post-user-meta d-flex flex-row">
+          <span>@{{ post.user.username }}</span>
+          <span class="mr-1 ml-1">·</span>
+          <span>35 min</span>
+        </span>
+      </div>
+    </a>
+    <div class="d-flex flex-column">
+      <button mat-icon-button type="button">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="mb-2">
+    <span [innerHtml]="post.message"
+      [class.readme-post-description-short]="post.truncate"
+    ></span>
+    <a href="javascript:void(0);"
+      class="readme-post-read-more-button"
+      [hidden]="!post.truncate"
+      (click)="readMore(post)">ler mais</a>
+  </div>
+  <div class="readme-post-books">
+    <div *ngFor="let book of post.books"
+      class="readme-post-book-card">
+      <a href="javascript:vdoi(0);">
+        <img [src]="book.image">
+        <div class="readme-post-book-description">
+          <div class="readme-post-book-line">{{ book.title }}</div>
+          <div class="readme-post-book-line">{{ book.authors[0] }}</div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
