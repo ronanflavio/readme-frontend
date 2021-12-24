@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { POST_LIST } from 'src/app/core/mock/posts.mock';
+import { Post } from 'src/app/core/models/post.model';
 
 @Component({
   selector: 'app-feed',
@@ -8,7 +9,7 @@ import { POST_LIST } from 'src/app/core/mock/posts.mock';
 })
 export class FeedComponent implements OnInit {
 
-  public postItems: any = [];
+  public postItems: Post[] = [];
 
   constructor() { }
 

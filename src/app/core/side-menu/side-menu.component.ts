@@ -13,8 +13,8 @@ export class SideMenuComponent implements OnInit {
     { name: 'Perfil', icon: 'person', action: '' },
     { name: 'Estante', icon: 'auto_stories', action: '' },
     { name: 'Gêneros', icon: 'style', action: '' },
-    { name: 'Favoritos', icon: 'favorite', action: '' },
-    { name: 'Itens salvos', icon: 'bookmark', action: '' },
+    { name: 'Favoritos', icon: 'favorite_outline', action: '' },
+    { name: 'Itens salvos', icon: 'bookmark_outline', action: '' },
   ];
 
   constructor() { }
