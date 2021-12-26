@@ -5,9 +5,16 @@ import { MaterialModule } from '../material/material.module';
 import { FooterComponent } from './footer/footer.component';
 import { CreatePostButtonComponent } from './create-post-button/create-post-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, CreatePostButtonComponent, SideMenuComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    CreatePostButtonComponent,
+    SideMenuComponent,
+    ElapsedTimePipe
+  ],
   imports: [
     CommonModule,
     MaterialModule
@@ -16,7 +23,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     HeaderComponent,
     FooterComponent,
     CreatePostButtonComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    ElapsedTimePipe
   ]
 })
 export class CoreModule { }
