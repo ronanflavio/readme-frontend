@@ -14,9 +14,28 @@
       </div>
     </a>
     <div class="d-flex flex-column">
-      <button mat-icon-button type="button">
+      <button mat-icon-button type="button"
+        [matMenuTriggerFor]="menu">
         <mat-icon>more_horiz</mat-icon>
       </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item type="button">
+          <mat-icon class="material-icons-outlined">sentiment_dissatisfied</mat-icon>
+          <span>Não tenho interesse nisso</span>
+        </button>
+        <button mat-menu-item type="button">
+          <mat-icon class="material-icons-outlined">person_remove_alt_1</mat-icon>
+          <span>Deixar de seguir</span>
+        </button>
+        <button mat-menu-item type="button">
+          <mat-icon class="material-icons-outlined">volume_off</mat-icon>
+          <span>Silenciar</span>
+        </button>
+        <button mat-menu-item type="button">
+          <mat-icon class="material-icons-outlined">block</mat-icon>
+          <span>Bloquear</span>
+        </button>
+      </mat-menu>
     </div>
   </div>
   <div class="mb-2">
