@@ -9,7 +9,7 @@
         <span class="readme-post-user-meta d-flex flex-row">
           <span>@{{ post.user.username }}</span>
           <span class="mr-1 ml-1">·</span>
-          <span>35 min</span>
+          <span>{{ post.datetime | elapsedTime }}</span>
         </span>
       </div>
     </a>
@@ -39,6 +39,11 @@
     </div>
   </div>
   <div class="mb-2">
+    <div *ngIf="post.review"
+      class="readme-review mb-1">
+      <mat-icon>star</mat-icon>
+      <span>{{ post.review }}</span>
+    </div>
     <span [innerHtml]="post.message"
       [class.readme-post-description-short]="post.truncate"
     ></span>
@@ -49,7 +54,8 @@
   </div>
   <div class="readme-post-books">
     <div *ngFor="let book of post.books"
-      class="readme-post-book-card">
+      class="readme-post-book-card"
+      [class.readme-post-book-reviewed]="post.review">
       <a href="javascript:vdoi(0);">
         <img [src]="book.image">
         <div class="readme-post-book-description">

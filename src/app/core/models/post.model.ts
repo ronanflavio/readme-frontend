@@ -3,6 +3,8 @@ export interface Post {
   user: PostUser,
   books: PostBook[],
   message: string,
+  datetime: string,
+  review: number | null,
   truncate: boolean
 }
 

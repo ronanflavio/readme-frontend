@@ -21,9 +21,22 @@
     font-size: 0.8rem;
   }
 
+  .readme-review {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    mat-icon {
+      zoom: 0.7;
+      color: #FFA41C;
+    }
+  }
+
   .readme-post-description-short {
     display: -webkit-box;
-    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -45,6 +58,11 @@
       flex: 0 0 auto;
       padding: 0 4px;
       width: 110px;
+
+      &.readme-post-book-reviewed {
+        width: 100%;
+        text-align: center;
+      }
 
       img {
         border-radius: 8px;
