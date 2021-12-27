@@ -1,8 +1,11 @@
 @import 'variables';
 
 .readme-content {
-  padding-top: var(--header-height);
   padding-bottom: var(--footer-height);
+}
+
+.readme-with-header {
+  padding-top: var(--header-height);
 }
 
 .readme-sidenav-container {
