@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CreatePostButtonComponent } from './components/create-post-button/create-post-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
+import { RouterModule } from '@angular/router';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -13,18 +15,21 @@ import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
     FooterComponent,
     CreatePostButtonComponent,
     SideMenuComponent,
-    ElapsedTimePipe
+    ElapsedTimePipe,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     CreatePostButtonComponent,
     SideMenuComponent,
-    ElapsedTimePipe
+    ElapsedTimePipe,
+    SearchBarComponent
   ]
 })
 export class CoreModule { }

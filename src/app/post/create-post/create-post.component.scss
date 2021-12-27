@@ -1,0 +1,15 @@
+@import 'variables';
+
+.readme-create-post-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.readme-create-post-content {
+  padding-top: var(--header-height);
+}

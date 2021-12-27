@@ -5,11 +5,13 @@ import { FeedComponent } from './feed/feed.component';
 import { PostItemComponent } from './feed/post-item/post-item.component';
 import { MaterialModule } from '../material/material.module';
 import { CoreModule } from '../core/core.module';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 @NgModule({
   declarations: [
     FeedComponent,
-    PostItemComponent
+    PostItemComponent,
+    CreatePostComponent
   ],
   imports: [
     CommonModule,

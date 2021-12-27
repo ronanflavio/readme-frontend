@@ -1,0 +1,21 @@
+<mat-toolbar class="readme-create-post-toolbar">
+  <button mat-icon-button
+    type="button"
+    routerLink="/">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button mat-raised-button
+    type="button"
+    color="primary">
+    Continuar
+  </button>
+</mat-toolbar>
+
+<div class="readme-create-post-content">
+  <div class="container mt-2">
+    <app-search-bar
+      placeholder="Busque pelo título, autor ou ISBN"
+      (onInputFocused)="onInputFocused($event)"
+    ></app-search-bar>
+  </div>
+</div>

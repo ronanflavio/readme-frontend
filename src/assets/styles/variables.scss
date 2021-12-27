@@ -3,3 +3,18 @@
   --footer-height: 55px;
   --sidenav-min-width: 280px;
 }
+
+// Took from Material Design: https://material.angular.io/cdk/layout/overview
+
+$smallHandset: 359px;
+$mediumHandset: 399px;
+$largeHandset: 479px;
+$extraLargeHandset: 599px;
+$smallTablet: 719px;
+$mediumTablet: 839px;
+$largeTablet: 959px;
+$smallLaptop: 1279px;
+$mediumLaptop: 1439px;
+$largeLaptop: 1599px;
+$largeDesktop: 1919px;
+$extraLargeDesktop: 1920px;
