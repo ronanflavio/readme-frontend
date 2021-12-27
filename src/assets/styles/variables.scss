@@ -1,7 +1,11 @@
 * {
+  // Sizes
   --header-height: 55px;
   --footer-height: 55px;
   --sidenav-min-width: 280px;
+
+  // Colors
+  --shaded-background: rgba(0,0,0,0.05);
 }
 
 // Took from Material Design: https://material.angular.io/cdk/layout/overview

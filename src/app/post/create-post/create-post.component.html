@@ -4,10 +4,11 @@
     routerLink="/">
     <mat-icon>close</mat-icon>
   </button>
-  <button mat-raised-button
+  <span>Selecionar livros</span>
+  <button mat-icon-button
     type="button"
     color="primary">
-    Continuar
+    <mat-icon>east</mat-icon>
   </button>
 </mat-toolbar>
 
@@ -19,3 +20,33 @@
     ></app-search-bar>
   </div>
 </div>
+
+<ul class="readme-post-book-added m-0 pr-3 pl-3">
+  <li class="d-flex align-items-center justify-content-between pt-2 pb-2">
+    <div class="d-flex align-items-center">
+      <img src="https://picsum.photos/id/1060/50/75"
+      class="readme-post-book-image">
+      <div class="d-flex flex-column ml-3">
+        <strong mat-line>Nome do livro</strong>
+        <span mat-line>Autor Nome e Sobrenome</span>
+      </div>
+    </div>
+    <button mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </li>
+
+  <li class="d-flex align-items-center justify-content-between pt-2 pb-2">
+    <div class="d-flex align-items-center">
+      <img src="https://picsum.photos/id/1060/50/75"
+      class="readme-post-book-image">
+      <div class="d-flex flex-column ml-3">
+        <strong mat-line>Nome do livro</strong>
+        <span mat-line>Autor Nome e Sobrenome</span>
+      </div>
+    </div>
+    <button mat-icon-button type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </li>
+</ul>
