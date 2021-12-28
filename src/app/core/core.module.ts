@@ -8,6 +8,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 import { RouterModule } from '@angular/router';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     CreatePostButtonComponent,
     SideMenuComponent,
     ElapsedTimePipe,
-    SearchBarComponent
+    SearchBarComponent,
+    UserAvatarComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     CreatePostButtonComponent,
     SideMenuComponent,
     ElapsedTimePipe,
-    SearchBarComponent
+    SearchBarComponent,
+    UserAvatarComponent
   ]
 })
 export class CoreModule { }
