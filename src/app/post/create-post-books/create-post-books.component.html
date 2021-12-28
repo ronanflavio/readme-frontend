@@ -1,0 +1,20 @@
+<app-create-post-header
+  iconBefore="close"
+  iconNext="east"
+  title="Selecionar livros"
+  (beforeClicked)="close()"
+  (nextClicked)="goToMessage()"
+></app-create-post-header>
+
+<div class="readme-create-post-content">
+  <div class="container mt-2">
+    <app-search-bar
+      placeholder="Busque pelo título, autor ou ISBN"
+      (onInputFocused)="onInputFocused($event)"
+    ></app-search-bar>
+  </div>
+</div>
+
+<app-selected-books
+  [bookList]="selectedBooks"
+></app-selected-books>
