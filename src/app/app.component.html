@@ -12,14 +12,16 @@
       (sidenavOpened)="sidenav.open()"
     ></app-header>
 
-    <div class="readme-content" [class.readme-with-header]="showNavbar">
+    <div class="readme-content"
+      [class.readme-with-header]="showNavbar"
+      [class.readme-with-footer]="showFooter">
       <router-outlet></router-outlet>
     </div>
 
     <app-create-post-button *ngIf="showCreatePostButton"
     ></app-create-post-button>
 
-    <app-footer></app-footer>
+    <app-footer *ngIf="showFooter"></app-footer>
 
   </mat-sidenav-content>
 

@@ -14,14 +14,22 @@ export class AppComponent implements OnInit {
 
   public title = 'Read.me';
   public showNavbar: boolean = true;
+  public showFooter: boolean = true;
   public showCreatePostButton: boolean = true;
 
   private _hideNavbarWhen: string[] = [
-    '/post/create',
+    '/post/create/books',
+    '/post/create/message',
+  ];
+
+  private _hideFooterWhen: string[] = [
+    '/post/create/books',
+    '/post/create/message',
   ];
 
   private _hideCreatePostButtonWhen: string[] = [
-    '/post/create',
+    '/post/create/books',
+    '/post/create/message',
   ];
 
   constructor(
@@ -41,6 +49,7 @@ export class AppComponent implements OnInit {
     this._router.events.subscribe((value) => {
       if (value instanceof NavigationEnd) {
         this.showNavbar = !this._hideNavbarWhen.includes(value.url);
+        this.showFooter = !this._hideFooterWhen.includes(value.url);
         this.showCreatePostButton = !this._hideCreatePostButtonWhen.includes(value.url);
       }
     })
