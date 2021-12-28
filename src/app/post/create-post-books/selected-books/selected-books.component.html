@@ -1,0 +1,16 @@
+<ul class="readme-post-book-added m-0 pr-3 pl-3">
+  <li *ngFor="let book of bookList"
+    class="d-flex align-items-center justify-content-between pt-2 pb-2">
+    <div class="d-flex align-items-center">
+      <img [src]="book.image"
+      class="readme-post-book-image">
+      <div class="d-flex flex-column ml-3">
+        <strong mat-line>{{ book.title }}</strong>
+        <span mat-line>{{ book.authors[0] }}</span>
+      </div>
+    </div>
+    <button mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </li>
+</ul>

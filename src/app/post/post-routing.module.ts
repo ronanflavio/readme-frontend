@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreatePostComponent } from './create-post/create-post.component';
+import { CreatePostBooksComponent } from './create-post-books/create-post-books.component';
+import { CreatePostMessageComponent } from './create-post-message/create-post-message.component';
 import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
@@ -14,8 +15,12 @@ const routes: Routes = [
     component: FeedComponent
   },
   {
-    path: 'post/create',
-    component: CreatePostComponent
+    path: 'post/create/books',
+    component: CreatePostBooksComponent
+  },
+  {
+    path: 'post/create/message',
+    component: CreatePostMessageComponent
   }
 ];
 

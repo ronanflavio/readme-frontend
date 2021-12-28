@@ -1,0 +1,11 @@
+@import 'variables';
+
+.readme-post-book-added {
+  background-color: var(--shaded-background);
+
+  .readme-post-book-image {
+    border-radius: 5px;
+    height: 75px;
+    width: auto;
+  }
+}

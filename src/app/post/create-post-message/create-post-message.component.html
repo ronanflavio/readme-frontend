@@ -1,0 +1,25 @@
+<app-create-post-header
+  iconBefore="west"
+  iconNext="done"
+  title="Mensagem"
+  (beforeClicked)="back()"
+  (nextClicked)="finish()"
+></app-create-post-header>
+
+<div class="readme-create-post-content">
+  <div class="container d-flex flex-row align-items-start justify-content-start mt-2">
+    <div class="readme-user-avatar">
+      <app-user-avatar></app-user-avatar>
+    </div>
+    <div class="ml-2">
+      <textarea class="readme-post-textarea"
+        rows="10"
+        placeholder="O que você está pensando?"
+      ></textarea>
+      <mat-divider></mat-divider>
+      <div class="mt-2">
+        Mencionando <strong>Long live the king</strong> e <strong>A Nightfall in the Middle Earth</strong>
+      </div>
+    </div>
+  </div>
+</div>
