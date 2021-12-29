@@ -15,21 +15,14 @@ export class AppComponent implements OnInit {
   public title = 'Read.me';
   public showNavbar: boolean = true;
   public showFooter: boolean = true;
-  public showCreatePostButton: boolean = true;
 
-  private _hideNavbarWhen: string[] = [
-    '/post/create/books',
-    '/post/create/message',
+  private _showNavbarWhen: string[] = [
+    '/feed',
   ];
 
-  private _hideFooterWhen: string[] = [
-    '/post/create/books',
-    '/post/create/message',
-  ];
-
-  private _hideCreatePostButtonWhen: string[] = [
-    '/post/create/books',
-    '/post/create/message',
+  private _showFooterWhen: string[] = [
+    '/feed',
+    '/books/',
   ];
 
   constructor(
@@ -38,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this._subscribeRouter();
+    this._subscribeRouter();
   }
 
   public close() {
@@ -48,9 +41,8 @@ export class AppComponent implements OnInit {
   private _subscribeRouter(): void {
     this._router.events.subscribe((value) => {
       if (value instanceof NavigationEnd) {
-        this.showNavbar = !this._hideNavbarWhen.includes(value.url);
-        this.showFooter = !this._hideFooterWhen.includes(value.url);
-        this.showCreatePostButton = !this._hideCreatePostButtonWhen.includes(value.url);
+        this.showNavbar = this._showNavbarWhen.includes(value.urlAfterRedirects);
+        this.showFooter = this._showFooterWhen.findIndex(e => value.urlAfterRedirects.includes(e)) >= 0;
       }
     })
   }

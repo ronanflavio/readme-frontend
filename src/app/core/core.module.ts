@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../material/material.module';
 import { FooterComponent } from './footer/footer.component';
-import { CreatePostButtonComponent } from './components/create-post-button/create-post-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 import { RouterModule } from '@angular/router';
@@ -14,7 +13,6 @@ import { UserAvatarComponent } from './components/user-avatar/user-avatar.compon
   declarations: [
     HeaderComponent,
     FooterComponent,
-    CreatePostButtonComponent,
     SideMenuComponent,
     ElapsedTimePipe,
     SearchBarComponent,
@@ -28,7 +26,6 @@ import { UserAvatarComponent } from './components/user-avatar/user-avatar.compon
   exports: [
     HeaderComponent,
     FooterComponent,
-    CreatePostButtonComponent,
     SideMenuComponent,
     ElapsedTimePipe,
     SearchBarComponent,

@@ -3,29 +3,29 @@
   <mat-toolbar>
     <button mat-icon-button
       type="button"
-      [class.active]="active === 'feed'"
-      (click)="active = 'feed'">
+      routerLink="/feed"
+      routerLinkActive="active">
       <mat-icon class="material-icons-outlined">home</mat-icon>
     </button>
 
     <button mat-icon-button
       type="button"
-      [class.active]="active === 'search'"
-      (click)="active = 'search'">
+      routerLink="/search"
+      routerLinkActive="active">
       <mat-icon class="material-icons-outlined">search</mat-icon>
     </button>
 
     <button mat-icon-button
       type="button"
-      [class.active]="active === 'favorites'"
-      (click)="active = 'favorites'">
+      routerLink="/favorites"
+      routerLinkActive="active">
       <mat-icon class="material-icons-outlined">favorite_outline</mat-icon>
     </button>
 
     <button mat-icon-button
       type="button"
-      [class.active]="active === 'notifications'"
-      (click)="active = 'notifications'">
+      routerLink="/notifications"
+      routerLinkActive="active">
       <mat-icon class="material-icons-outlined">notifications</mat-icon>
     </button>
   </mat-toolbar>
