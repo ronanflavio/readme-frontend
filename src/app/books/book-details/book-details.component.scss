@@ -1,0 +1,39 @@
+header {
+  position: relative;
+
+  .readme-book-cover {
+    height: 160px;
+    background: cornflowerblue;
+  }
+
+  .readme-book-image {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    img {
+      height: 160px;
+      width: auto;
+      border-radius: 5px;
+    }
+  }
+
+  .readme-book-info {
+    padding-top: 70px;
+
+    .readme-book-title {
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .readme-book-title, .readme-book-authors {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

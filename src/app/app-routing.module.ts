@@ -4,12 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'post',
-    pathMatch: 'full'
+    loadChildren: () => import('./post/post-routing.module').then(m => m.PostRoutingModule)
   },
   {
-    path: '',
-    loadChildren: () => import('./post/post-routing.module').then(m => m.PostRoutingModule)
+    path: 'books',
+    loadChildren: () => import('./books/books-routing.module').then(m => m.BooksRoutingModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

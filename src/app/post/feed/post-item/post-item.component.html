@@ -56,7 +56,8 @@
     <div *ngFor="let book of post.books"
       class="readme-post-book-card"
       [class.readme-post-book-reviewed]="post.review">
-      <a href="javascript:vdoi(0);">
+      <a href="javascript:vdoi(0);"
+        routerLink="/books/{{ book.id }}">
         <img [src]="book.image">
         <div class="readme-post-book-description">
           <div class="readme-post-book-line">{{ book.title }}</div>
