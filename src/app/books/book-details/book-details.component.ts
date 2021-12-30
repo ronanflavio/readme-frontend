@@ -10,6 +10,8 @@ export class BookDetailsComponent implements AfterViewInit {
 
   @ViewChild('header') header!: ElementRef;
 
+  public favorite: boolean = false;
+
   constructor() { }
 
   ngAfterViewInit(): void {

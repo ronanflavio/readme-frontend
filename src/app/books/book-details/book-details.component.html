@@ -20,8 +20,16 @@
     </div>
     <div class="readme-book-actions">
       <button mat-mini-fab
+        color="default"
+        (click)="favorite = !favorite">
+        <mat-icon [color]="favorite ? 'warn' : ''">
+          {{ favorite ? 'favorite' : 'favorite_bordered' }}
+        </mat-icon>
+      </button>
+      <button mat-mini-fab
         type="button"
         color="accent"
+        class="readme-book-add-button"
         [matMenuTriggerFor]="menu">
         <mat-icon>add</mat-icon>
       </button>
