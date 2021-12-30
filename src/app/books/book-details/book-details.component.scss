@@ -3,7 +3,6 @@ header {
 
   .readme-book-cover {
     height: 160px;
-    background: cornflowerblue;
   }
 
   .readme-book-image {
@@ -17,6 +16,20 @@ header {
       height: 160px;
       width: auto;
       border-radius: 5px;
+    }
+  }
+
+  .readme-book-actions {
+    position: absolute;
+    top: 160px;
+    right: 0;
+    padding: 10px;
+
+    .mat-mini-fab {
+      border: 4px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
