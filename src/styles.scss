@@ -1,10 +1,4 @@
-@use '@angular/material' as mat;
-
-$readme-typography: mat.define-typography-config(
-  $font-family: '"Poppins", sans-serif;'
-);
-
-@include mat.core($readme-typography);
+@use 'assets/styles/theme';
 
 html, body {
   height: 100%;
