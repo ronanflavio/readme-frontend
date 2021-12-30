@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostRoutingModule } from './post-routing.module';
 import { FeedComponent } from './feed/feed.component';
-import { PostItemComponent } from './feed/post-item/post-item.component';
+import { PostComponent } from './feed/post/post.component';
 import { MaterialModule } from '../material/material.module';
 import { CoreModule } from '../core/core.module';
 import { CreatePostBooksComponent } from './create-post-books/create-post-books.component';
@@ -14,7 +14,7 @@ import { CreatePostButtonComponent } from './components/create-post-button/creat
 @NgModule({
   declarations: [
     FeedComponent,
-    PostItemComponent,
+    PostComponent,
     CreatePostBooksComponent,
     SelectedBooksComponent,
     CreatePostMessageComponent,

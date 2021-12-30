@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./post/post-routing.module').then(m => m.PostRoutingModule)
+    loadChildren: () => import('./posts/post-routing.module').then(m => m.PostRoutingModule)
   },
   {
     path: 'books',
