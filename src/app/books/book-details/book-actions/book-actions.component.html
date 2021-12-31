@@ -1,0 +1,34 @@
+<div class="readme-book-actions">
+  <button mat-mini-fab
+    color="default"
+    (click)="favorite = !favorite">
+    <mat-icon [color]="favorite ? 'warn' : ''">
+      {{ favorite ? 'favorite' : 'favorite_bordered' }}
+    </mat-icon>
+  </button>
+  <button mat-mini-fab
+    type="button"
+    color="accent"
+    class="readme-book-add-button"
+    [matMenuTriggerFor]="menu">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>radio_button_unchecked</mat-icon>
+      <span>Tenho</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>radio_button_unchecked</mat-icon>
+      <span>Lido</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon color="primary">check_circle</mat-icon>
+      <span>Lendo</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>radio_button_unchecked</mat-icon>
+      <span>Quero ler</span>
+    </button>
+  </mat-menu>
+</div>

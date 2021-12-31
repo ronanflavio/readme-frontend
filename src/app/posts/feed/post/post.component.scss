@@ -1,3 +1,5 @@
+@import 'variables';
+
 .readme-post-content {
   display: block;
   overflow-y: hidden;
@@ -30,7 +32,7 @@
 
     mat-icon {
       zoom: 0.7;
-      color: #FFA41C;
+      color: var(--star-rating);
     }
   }
 

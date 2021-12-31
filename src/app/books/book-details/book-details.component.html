@@ -1,5 +1,4 @@
 <main>
-
   <header #header>
 
     <div class="readme-book-header">
@@ -10,57 +9,23 @@
       ></app-generic-header>
     </div>
 
-    <div class="readme-book-cover"></div>
-    <div class="readme-book-info">
-      <div class="readme-book-image">
-        <img src="/assets/img/lord-of-the-rings.jpg">
-        <!-- <img src="/assets/img/julio-verne.jpg"> -->
-        <!-- <img src="/assets/img/projeto-vida.png"> -->
-        <!-- <img src="/assets/img/toda-poesia.jpg"> -->
-      </div>
-      <div class="container d-flex flex-column">
-        <h2 class="readme-book-title text-center">
-          O Senhor dos Anéis - As Duas Torres
-        </h2>
-        <span class="readme-book-authors text-center">
-          J.R.R. Tolkien
-        </span>
-      </div>
+    <app-book-cover></app-book-cover>
+
+    <app-book-actions></app-book-actions>
+
+    <div class="container d-flex flex-column">
+      <h2 class="readme-book-title text-center">
+        O Senhor dos Anéis - As Duas Torres
+      </h2>
+      <span class="readme-book-authors text-center">
+        J.R.R. Tolkien
+      </span>
     </div>
-    <div class="readme-book-actions">
-      <button mat-mini-fab
-        color="default"
-        (click)="favorite = !favorite">
-        <mat-icon [color]="favorite ? 'warn' : ''">
-          {{ favorite ? 'favorite' : 'favorite_bordered' }}
-        </mat-icon>
-      </button>
-      <button mat-mini-fab
-        type="button"
-        color="accent"
-        class="readme-book-add-button"
-        [matMenuTriggerFor]="menu">
-        <mat-icon>add</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>radio_button_unchecked</mat-icon>
-          <span>Tenho</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>radio_button_unchecked</mat-icon>
-          <span>Lido</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon color="primary">check_circle</mat-icon>
-          <span>Lendo</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>radio_button_unchecked</mat-icon>
-          <span>Quero ler</span>
-        </button>
-      </mat-menu>
+
+    <div class="mt-2">
+      <app-book-rating [rating]="rating"></app-book-rating>
     </div>
+
   </header>
 
   <mat-divider class="mt-3 mb-3"></mat-divider>

@@ -1,0 +1,23 @@
+@import 'variables';
+
+.readme-book-cover {
+  height: var(--book-details-height);
+}
+
+.readme-book-info {
+  padding-top: calc(var(--book-details-height) / 2);
+
+  .readme-book-image {
+    position: absolute;
+    top: calc(var(--header-height) + 10px);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    img {
+      height: var(--book-details-height);
+      width: auto;
+      border-radius: 5px;
+    }
+  }
+}
