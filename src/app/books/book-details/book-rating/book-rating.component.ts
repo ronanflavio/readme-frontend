@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BookRatingComponent implements OnInit {
 
   @Input() rating!: number;
+  @Input() reviewers!: number;
 
   constructor() { }
 
@@ -15,7 +16,7 @@ export class BookRatingComponent implements OnInit {
   }
 
   public getStarFill(currentRating: number): string {
-    if (this.rating >= (currentRating - 0.1)) {
+    if (this.rating >= (currentRating - 0.2)) {
       return 'star';
     } else if (this.rating < currentRating && this.rating > (currentRating - 1)) {
       return 'star_half';
