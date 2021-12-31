@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BookInteraction } from '../../models/book-details.model';
 
 @Component({
   selector: 'app-book-actions',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookActionsComponent implements OnInit {
 
-  public favorite: boolean = false;
+  @Input() interaction!: BookInteraction;
 
   constructor() { }
 

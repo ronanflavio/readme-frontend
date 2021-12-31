@@ -1,9 +1,9 @@
 <div class="readme-book-actions">
   <button mat-mini-fab
     color="default"
-    (click)="favorite = !favorite">
-    <mat-icon [color]="favorite ? 'warn' : ''">
-      {{ favorite ? 'favorite' : 'favorite_bordered' }}
+    (click)="interaction.favorite = !interaction.favorite">
+    <mat-icon [color]="interaction.favorite ? 'primary' : ''">
+      {{ interaction.favorite ? 'favorite' : 'favorite_bordered' }}
     </mat-icon>
   </button>
   <button mat-mini-fab
@@ -15,19 +15,27 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
-      <mat-icon>radio_button_unchecked</mat-icon>
+      <mat-icon [color]="interaction.own ? 'primary' : null">
+        {{ interaction.own ? 'check_circle' : 'radio_button_unchecked' }}
+      </mat-icon>
       <span>Tenho</span>
     </button>
     <button mat-menu-item>
-      <mat-icon>radio_button_unchecked</mat-icon>
+      <mat-icon [color]="interaction.read ? 'primary' : null">
+        {{ interaction.read ? 'check_circle' : 'radio_button_unchecked' }}
+      </mat-icon>
       <span>Lido</span>
     </button>
     <button mat-menu-item>
-      <mat-icon color="primary">check_circle</mat-icon>
+      <mat-icon [color]="interaction.reading ? 'primary' : null">
+        {{ interaction.reading ? 'check_circle' : 'radio_button_unchecked' }}
+      </mat-icon>
       <span>Lendo</span>
     </button>
     <button mat-menu-item>
-      <mat-icon>radio_button_unchecked</mat-icon>
+      <mat-icon [color]="interaction.willing ? 'primary' : null">
+        {{ interaction.willing ? 'check_circle' : 'radio_button_unchecked' }}
+      </mat-icon>
       <span>Quero ler</span>
     </button>
   </mat-menu>

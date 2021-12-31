@@ -1,0 +1,13 @@
+@import 'variables';
+
+.readme-synopsis-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.readme-text-muted {
+  color: var(--text-muted);
+}
