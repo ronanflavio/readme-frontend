@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreatePostHeaderComponent } from './create-post-header.component';
+import { GenericHeaderComponent } from './generic-header.component';
 
-describe('CreatePostHeaderComponent', () => {
-  let component: CreatePostHeaderComponent;
-  let fixture: ComponentFixture<CreatePostHeaderComponent>;
+describe('GenericHeaderComponent', () => {
+  let component: GenericHeaderComponent;
+  let fixture: ComponentFixture<GenericHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatePostHeaderComponent ]
+      declarations: [ GenericHeaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreatePostHeaderComponent);
+    fixture = TestBed.createComponent(GenericHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,29 @@
+@import 'variables';
+
+.readme-generic-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  transition: background 150ms linear;
+
+  &.readme-generic-toolbar-transparent {
+    background: rgba(245,245,245,0.1);
+    transition: background 150ms linear;
+  }
+
+  .readme-toolbar-button {
+    min-width: 40px;
+  }
+
+  .readme-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    letter-spacing: -1px;
+  }
+}

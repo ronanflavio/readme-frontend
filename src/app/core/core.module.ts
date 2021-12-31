@@ -8,6 +8,7 @@ import { ElapsedTimePipe } from './pipes/elapsed-time.pipe';
 import { RouterModule } from '@angular/router';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
+import { GenericHeaderComponent } from './components/generic-header/generic-header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserAvatarComponent } from './components/user-avatar/user-avatar.compon
     SideMenuComponent,
     ElapsedTimePipe,
     SearchBarComponent,
-    UserAvatarComponent
+    UserAvatarComponent,
+    GenericHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { UserAvatarComponent } from './components/user-avatar/user-avatar.compon
     SideMenuComponent,
     ElapsedTimePipe,
     SearchBarComponent,
-    UserAvatarComponent
+    UserAvatarComponent,
+    GenericHeaderComponent
   ]
 })
 export class CoreModule { }

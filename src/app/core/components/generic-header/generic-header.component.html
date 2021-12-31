@@ -1,0 +1,21 @@
+<mat-toolbar class="readme-generic-toolbar"
+  [class.readme-generic-toolbar-transparent]="onTop">
+  <span class="readme-toolbar-button">
+    <button *ngIf="iconBefore"
+      mat-icon-button
+      type="button"
+      (click)="clickBefore()">
+      <mat-icon>{{ iconBefore }}</mat-icon>
+    </button>
+  </span>
+  <span class="readme-title">{{ title }}</span>
+  <span class="readme-toolbar-button">
+    <button *ngIf="iconNext"
+      mat-icon-button
+      type="button"
+      color="primary"
+      (click)="clickNext()">
+      <mat-icon>{{ iconNext }}</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
