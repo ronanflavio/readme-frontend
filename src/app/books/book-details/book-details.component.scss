@@ -1,19 +1,29 @@
+@import 'variables';
+
 header {
   position: relative;
 
+  .readme-book-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
   .readme-book-cover {
-    height: 160px;
+    height: var(--book-details-height);
   }
 
   .readme-book-image {
     position: absolute;
-    top: 50px;
+    top: calc(var(--header-height) + 10px);
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 
     img {
-      height: 160px;
+      height: var(--book-details-height);
       width: auto;
       border-radius: 5px;
     }
@@ -21,7 +31,7 @@ header {
 
   .readme-book-actions {
     position: absolute;
-    top: 160px;
+    top: var(--book-details-height);
     right: 0;
     padding: 10px;
     width: 100%;
@@ -38,7 +48,7 @@ header {
   }
 
   .readme-book-info {
-    padding-top: 70px;
+    padding-top: calc(var(--book-details-height) / 2);
 
     .readme-book-title {
       margin-bottom: 8px;

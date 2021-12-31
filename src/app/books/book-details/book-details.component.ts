@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import FastAverageColor from 'fast-average-color';
 
@@ -12,10 +13,16 @@ export class BookDetailsComponent implements AfterViewInit {
 
   public favorite: boolean = false;
 
-  constructor() { }
+  constructor(
+    private _location: Location
+  ) { }
 
   ngAfterViewInit(): void {
       this._setCoverBackground();
+  }
+
+  public redirectBack(): void {
+    this._location.back();
   }
 
   private _setCoverBackground(): void {

@@ -1,6 +1,15 @@
 <main>
 
   <header #header>
+
+    <div class="readme-book-header">
+      <app-generic-header
+        iconBefore="west"
+        title="O Senhor dos Anéis - As Duas Torres"
+        (beforeClicked)="redirectBack()"
+      ></app-generic-header>
+    </div>
+
     <div class="readme-book-cover"></div>
     <div class="readme-book-info">
       <div class="readme-book-image">
