@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 import { GenericHeaderComponent } from './components/generic-header/generic-header.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GenericHeaderComponent } from './components/generic-header/generic-head
     ElapsedTimePipe,
     SearchBarComponent,
     UserAvatarComponent,
-    GenericHeaderComponent
+    GenericHeaderComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { GenericHeaderComponent } from './components/generic-header/generic-head
     ElapsedTimePipe,
     SearchBarComponent,
     UserAvatarComponent,
-    GenericHeaderComponent
+    GenericHeaderComponent,
+    LoadingComponent
   ]
 })
 export class CoreModule { }

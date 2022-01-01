@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { BOOK_DETAILS } from '../mock/book-details.mock';
+import { finalize } from 'rxjs';
 import { BookDetails } from '../models/book-details.model';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-details',
@@ -13,13 +14,15 @@ export class BookDetailsComponent implements OnInit {
   @ViewChild('header') header!: ElementRef;
 
   public bookDetails!: BookDetails;
+  public loading: boolean = true;
 
   constructor(
-    private _location: Location
+    private _location: Location,
+    private _bookService: BookService
   ) { }
 
   ngOnInit(): void {
-      this._getBookDetails();
+    this._getBookDetails();
   }
 
   public redirectBack(): void {
@@ -27,7 +30,11 @@ export class BookDetailsComponent implements OnInit {
   }
 
   private _getBookDetails(): void {
-    this.bookDetails = BOOK_DETAILS;
+    this._bookService.getBookDetails()
+      .pipe(finalize(() => this.loading = false))
+      .subscribe((response: BookDetails) => {
+        this.bookDetails = response;
+      });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { POST_LIST } from 'src/app/core/mock/posts.mock';
-import { Post } from 'src/app/core/models/post.model';
+import { finalize } from 'rxjs';
+import { Post } from '../models/post.model';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-feed',
@@ -9,23 +10,31 @@ import { Post } from 'src/app/core/models/post.model';
 })
 export class FeedComponent implements OnInit {
 
+  public loading: boolean = false;
   public postItems: Post[] = [];
 
-  constructor() { }
+  constructor(
+    private _postService: PostService
+  ) { }
 
   ngOnInit(): void {
     this._getPosts();
-    this._preparePosts();
   }
 
   private _getPosts(): void {
-    this.postItems = POST_LIST;
+    this.loading = true;
+    this._postService.getFeed()
+      .pipe(finalize(() => this.loading = false))
+      .subscribe((response: Post[]) => {
+        this.postItems = this._preparePosts(response);
+      });
   }
 
-  private _preparePosts(): void {
-    this.postItems.forEach((post: any) => {
+  private _preparePosts(posts: Post[]): Post[] {
+    posts.forEach((post: any) => {
       post.truncate = post.message.length > 200;
     });
+    return posts;
   }
 
 }

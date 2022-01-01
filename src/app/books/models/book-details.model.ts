@@ -1,6 +1,7 @@
 export interface BookDetails {
   id: string;
   title: string;
+  image: string;
   authors: string[];
   synopsis: string;
   review: BookReview;

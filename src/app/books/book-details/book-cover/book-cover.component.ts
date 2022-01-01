@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import FastAverageColor from 'fast-average-color';
 
 @Component({
@@ -10,6 +10,8 @@ export class BookCoverComponent implements AfterViewInit {
 
   @ViewChild('cover') cover!: ElementRef;
   @ViewChild('image') image!: ElementRef;
+
+  @Input() bookImage!: string;
 
   constructor() { }
 

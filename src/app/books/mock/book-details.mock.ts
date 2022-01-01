@@ -3,6 +3,7 @@ import { BookDetails } from "../models/book-details.model";
 export const BOOK_DETAILS: BookDetails = {
   id: 'a78d68sljjkh',
   title: 'O Senhor dos Anéis: As Duas Torres',
+  image: 'assets/img/lord-of-the-rings.jpg',
   authors: [
     'J.R.R. Tolkien'
   ],
