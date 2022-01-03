@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Autocomplete } from 'src/app/core/models/autocomplete.model';
 
 @Component({
   selector: 'app-create-post-books',
@@ -8,25 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CreatePostBooksComponent implements OnInit {
 
-  public inputFocused: boolean = false;
-  public selectedBooks: any = [
-    {
-      'id': 'as7df6as78da',
-      'image': 'https://picsum.photos/id/142/50/75',
-      'title': 'Long live the king',
-      'authors': [
-        'Narnia'
-      ]
-    },
-    {
-      'id': 'asdf7628734j',
-      'image': 'https://picsum.photos/id/155/50/75',
-      'title': 'Nightfal in the Middle Earth',
-      'authors': [
-        'Blind Guardian'
-      ]
-    }
-  ];
+  public selectedBooks: Autocomplete[] = [];
 
   constructor(
     private _router: Router
@@ -35,8 +18,18 @@ export class CreatePostBooksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onInputFocused(event: boolean): void {
-    this.inputFocused = event;
+  public onOptionSelected(event: Autocomplete): void {
+    const index = this._getBookIndex(event);
+    if (index < 0) {
+      this.selectedBooks.push(event);
+    }
+  }
+
+  public onBookRemoved(event: Autocomplete): void {
+    const index = this._getBookIndex(event);
+    if (index >= 0) {
+      this.selectedBooks.splice(index, 1);
+    }
   }
 
   public close(): void {
@@ -47,4 +40,7 @@ export class CreatePostBooksComponent implements OnInit {
     this._router.navigate(['/post/create/message']);
   }
 
+  private _getBookIndex(book: Autocomplete): number {
+    return this.selectedBooks.findIndex(i => i.id === book.id);
+  }
 }

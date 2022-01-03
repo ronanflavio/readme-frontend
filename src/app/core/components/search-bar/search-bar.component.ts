@@ -16,6 +16,7 @@ export class SearchBarComponent implements OnInit {
   @Input() placeholder: string;
 
   @Output() onInputFocused = new EventEmitter<boolean>();
+  @Output() onOptionSelected = new EventEmitter<Autocomplete>();
 
   public bookAutocomplete!: Autocomplete[];
   public inputFocused: boolean = false;
@@ -33,6 +34,11 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit(): void {
     this._observeSearch();
+  }
+
+  public selectOption(event: Autocomplete): void {
+    this.onOptionSelected.emit(event);
+    this.search.setValue(null);
   }
 
   public onFocus(): void {
@@ -55,7 +61,7 @@ export class SearchBarComponent implements OnInit {
       distinctUntilChanged()
     )
     .subscribe((term: string) => {
-      if (term.length >= 3) {
+      if (term && term.length >= 3) {
         this._autocomplete(term);
       } else {
         this.bookAutocomplete = [];

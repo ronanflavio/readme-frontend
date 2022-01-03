@@ -9,7 +9,9 @@
         <span mat-line>{{ book.authors[0] }}</span>
       </div>
     </div>
-    <button mat-icon-button>
+    <button mat-icon-button
+      type="button"
+      (click)="removeBook(book)">
       <mat-icon>close</mat-icon>
     </button>
   </li>

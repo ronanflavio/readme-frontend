@@ -25,4 +25,16 @@ export const BOOK_AUTOCOMPLETE: Autocomplete[] = [
     image: 'https://picsum.photos/id/1054/50/75',
     authors: ['Rodolfo Gonzales']
   },
+  {
+    id: 'as7df6as78da',
+    image: 'https://picsum.photos/id/142/50/75',
+    title: 'Long live the king',
+    authors: ['Narnia']
+  },
+  {
+    id: 'asdf7628734j',
+    image: 'https://picsum.photos/id/155/50/75',
+    title: 'Nightfal in the Middle Earth',
+    authors: ['Blind Guardian']
+  }
 ];

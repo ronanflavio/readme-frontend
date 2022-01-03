@@ -10,11 +10,12 @@
   <div class="container mt-2">
     <app-search-bar
       placeholder="Busque pelo título, autor ou ISBN"
-      (onInputFocused)="onInputFocused($event)"
+      (onOptionSelected)="onOptionSelected($event)"
     ></app-search-bar>
   </div>
 </div>
 
 <app-selected-books
   [bookList]="selectedBooks"
+  (onBookRemoved)="onBookRemoved($event)"
 ></app-selected-books>

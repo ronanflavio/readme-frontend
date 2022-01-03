@@ -11,9 +11,12 @@
   <mat-spinner *ngIf="loading"
     diameter=24
   ></mat-spinner>
-  <mat-autocomplete #autocomplete="matAutocomplete" class="readme-autocomplete-bar">
+  <mat-autocomplete #autocomplete="matAutocomplete"
+    class="readme-autocomplete-bar"
+    (optionSelected)="selectOption($event.option.value)">
     <mat-option *ngFor="let book of bookAutocomplete"
-      class="readme-autocomplete-bar-option">
+      class="readme-autocomplete-bar-option"
+      [value]="book">
       <mat-list>
         <mat-list-item>
           <div class="readme-search-icon">
