@@ -17,8 +17,15 @@
         placeholder="O que você está pensando?"
       ></textarea>
       <mat-divider></mat-divider>
-      <div class="mt-2">
-        Mencionando <strong>Long live the king</strong> e <strong>A Nightfall in the Middle Earth</strong>
+      <div *ngIf="selectedBooks.length"
+        class="mt-2">
+        <span>Mencionando</span>&nbsp;
+        <span *ngFor="let book of selectedBooks; index as i">
+          <strong>{{ book.title }}</strong>
+          <span *ngIf="selectedBooks.length > 1 && i < (selectedBooks.length - 1)">
+            {{ i < (selectedBooks.length - 2) ? ', ' : ' e ' }}
+          </span>
+        </span>
       </div>
     </div>
   </div>
