@@ -10,6 +10,7 @@ export class GenericHeaderComponent implements OnInit {
   @Input() iconBefore: string = '';
   @Input() iconNext: string = '';
   @Input() title: string = '';
+  @Input() nextDisabled: boolean = false;
 
   @Output() nextClicked = new EventEmitter();
   @Output() beforeClicked = new EventEmitter();

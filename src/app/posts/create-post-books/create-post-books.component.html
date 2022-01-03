@@ -2,6 +2,7 @@
   iconBefore="close"
   iconNext="east"
   title="Selecionar livros"
+  [nextDisabled]="selectedBooks.length <= 0"
   (beforeClicked)="close()"
   (nextClicked)="goToMessage()"
 ></app-generic-header>
