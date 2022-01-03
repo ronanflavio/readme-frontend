@@ -1,62 +1,29 @@
-<div class="readme-search-bar-container">
+<form class="readme-search-bar-container"
+  [formGroup]="form">
   <mat-icon [ngClass]="{'readme-hide-search' : inputFocused}">search</mat-icon>
   <mat-icon class="pointer d-none" [ngClass]="{'readme-show-back' : inputFocused}">arrow_back</mat-icon>
   <input
+    formControlName="search"
     [matAutocomplete]="autocomplete"
     [placeholder]="placeholder"
     (focus)="onFocus()"
     (blur)="onBlur()">
+  <mat-spinner *ngIf="loading"
+    diameter=24
+  ></mat-spinner>
   <mat-autocomplete #autocomplete="matAutocomplete" class="readme-autocomplete-bar">
-    <mat-option class="readme-autocomplete-bar-option">
+    <mat-option *ngFor="let book of bookAutocomplete"
+      class="readme-autocomplete-bar-option">
       <mat-list>
         <mat-list-item>
           <div class="readme-search-icon">
-            <img src="https://picsum.photos/id/1033/50/75">
+            <img [src]="book.image">
           </div>
-          <div mat-line class="readme-line-result">A porta proibida</div>
-          <div mat-line class="readme-line-result readme-underline-result">Mark Ronson</div>
+          <div mat-line class="readme-line-result">{{ book.title }}</div>
+          <div mat-line class="readme-line-result readme-underline-result">{{ book.authors[0] }}</div>
         </mat-list-item>
       </mat-list>
-      <mat-divider></mat-divider>
     </mat-option>
-
-    <mat-option class="readme-autocomplete-bar-option">
-      <mat-list>
-        <mat-list-item>
-          <div class="readme-search-icon">
-            <img src="https://picsum.photos/id/1049/50/75">
-          </div>
-          <div mat-line class="readme-line-result">A sabedoria dos loucos impetuosos de Guiné</div>
-          <div mat-line class="readme-line-result readme-underline-result">Alim Maslim Kaban</div>
-        </mat-list-item>
-      </mat-list>
-      <mat-divider></mat-divider>
-    </mat-option>
-
-    <mat-option class="readme-autocomplete-bar-option">
-      <mat-list>
-        <mat-list-item>
-          <div class="readme-search-icon">
-            <img src="https://picsum.photos/id/1060/50/75">
-          </div>
-          <div mat-line class="readme-line-result">Rumo ao dia de luta</div>
-          <div mat-line class="readme-line-result readme-underline-result">Johnson McCoy</div>
-        </mat-list-item>
-      </mat-list>
-      <mat-divider></mat-divider>
-    </mat-option>
-
-    <mat-option class="readme-autocomplete-bar-option">
-      <mat-list>
-        <mat-list-item>
-          <div class="readme-search-icon">
-            <img src="https://picsum.photos/id/1054/50/75">
-          </div>
-          <div mat-line class="readme-line-result">A muralha desprotegida</div>
-          <div mat-line class="readme-line-result readme-underline-result">Rodolfo Gonzales</div>
-        </mat-list-item>
-      </mat-list>
-      <mat-divider></mat-divider>
-    </mat-option>
+    <mat-divider></mat-divider>
   </mat-autocomplete>
-</div>
+</form>
