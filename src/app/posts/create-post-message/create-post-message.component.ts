@@ -12,6 +12,7 @@ import { PostService } from '../services/post.service';
 export class CreatePostMessageComponent implements OnInit, OnDestroy {
 
   public selectedBooks: Autocomplete[] = [];
+  public finished: boolean = false;
 
   protected destroy$: ReplaySubject<void> = new ReplaySubject();
 
@@ -33,7 +34,10 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
   }
 
   public finish(): void {
-    //
+    this.finished = true;
+    setTimeout(() => {
+      this._router.navigate(['/']);
+    }, 3000)
   }
 
   private _subscribeSelectedBooks(): void {

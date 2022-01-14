@@ -6,7 +6,8 @@
   (nextClicked)="finish()"
 ></app-generic-header>
 
-<div class="readme-create-post-content">
+<div *ngIf="!finished else postFinished"
+  class="readme-create-post-content">
   <div class="container d-flex flex-row align-items-start justify-content-start mt-2">
     <div class="readme-user-avatar">
       <app-user-avatar></app-user-avatar>
@@ -30,3 +31,9 @@
     </div>
   </div>
 </div>
+
+<ng-template #postFinished>
+  <div class="readme-checkmark">
+    <app-checkmark></app-checkmark>
+  </div>
+</ng-template>
