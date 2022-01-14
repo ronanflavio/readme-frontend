@@ -28,8 +28,8 @@
 
       <div class="mt-2">
         <app-book-rating
-          [rating]="bookDetails.review.rating"
-          [reviewers]="bookDetails.review.reviewers"
+          [value]="bookDetails.rating.value"
+          [quantity]="bookDetails.rating.quantity"
         ></app-book-rating>
       </div>
 
@@ -42,6 +42,13 @@
     ></app-book-synopsis>
 
     <mat-divider class="mt-3 mb-3"></mat-divider>
+
+    <div *ngFor="let review of bookDetails.reviews">
+      <app-book-review
+        [review]="review"
+      ></app-book-review>
+      <mat-divider class="mt-3 mb-3"></mat-divider>
+    </div>
   </ng-template>
 
 </main>

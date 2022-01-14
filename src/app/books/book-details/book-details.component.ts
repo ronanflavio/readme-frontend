@@ -33,8 +33,15 @@ export class BookDetailsComponent implements OnInit {
     this._bookService.getBookDetails()
       .pipe(finalize(() => this.loading = false))
       .subscribe((response: BookDetails) => {
-        this.bookDetails = response;
+        this.bookDetails = this._prepareBookReviews(response);
       });
+  }
+
+  private _prepareBookReviews(book: BookDetails): BookDetails {
+    book.reviews?.forEach((review: any) => {
+      review.truncate = review.message.length > 200;
+    });
+    return book;
   }
 
 }

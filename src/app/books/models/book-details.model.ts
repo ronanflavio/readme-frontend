@@ -4,13 +4,14 @@ export interface BookDetails {
   image: string;
   authors: string[];
   synopsis: string;
-  review: BookReview;
+  rating: BookRating;
   interaction: BookInteraction;
+  reviews?: BookReview[];
 }
 
-export interface BookReview {
-  rating: number;
-  reviewers: number;
+export interface BookRating {
+  value: number;
+  quantity: number;
 }
 
 export interface BookInteraction {
@@ -19,4 +20,21 @@ export interface BookInteraction {
   read: boolean;
   reading: boolean;
   willing: boolean;
+}
+
+export interface BookReview {
+  id: string;
+  title: string;
+  message: string;
+  rating: number;
+  datetime: string;
+  truncate: boolean;
+  user: UserReview;
+}
+
+export interface UserReview {
+  id: string;
+  avatar: string;
+  name: string;
+  username: string;
 }
