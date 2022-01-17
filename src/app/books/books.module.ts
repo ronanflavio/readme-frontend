@@ -9,6 +9,7 @@ import { BookCoverComponent } from './book-details/book-cover/book-cover.compone
 import { BookActionsComponent } from './book-details/book-actions/book-actions.component';
 import { BookSynopsisComponent } from './book-details/book-synopsis/book-synopsis.component';
 import { BookReviewComponent } from './book-details/book-review/book-review.component';
+import { SearchBookComponent } from './search-book/search-book.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BookReviewComponent } from './book-details/book-review/book-review.comp
     BookCoverComponent,
     BookActionsComponent,
     BookSynopsisComponent,
-    BookReviewComponent
+    BookReviewComponent,
+    SearchBookComponent
   ],
   imports: [
     CommonModule,
