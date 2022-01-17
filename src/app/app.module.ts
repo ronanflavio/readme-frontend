@@ -10,6 +10,7 @@ import { BooksModule } from './books/books.module';
 
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
+import { UsersModule } from './users/users.module';
 registerLocaleData(pt);
 
 @NgModule({
@@ -23,7 +24,8 @@ registerLocaleData(pt);
     MaterialModule,
     CoreModule,
     PostModule,
-    BooksModule
+    BooksModule,
+    UsersModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
