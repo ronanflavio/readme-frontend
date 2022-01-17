@@ -1,36 +1,37 @@
-<app-generic-header
-  iconBefore="west"
-  iconNext="done"
-  title="Mensagem"
-  (beforeClicked)="back()"
-  (nextClicked)="finish()"
-></app-generic-header>
+<ng-container *ngIf="!finished else postFinished">
+  <app-generic-header
+    iconBefore="west"
+    iconNext="done"
+    title="Mensagem"
+    (beforeClicked)="back()"
+    (nextClicked)="finish()"
+  ></app-generic-header>
 
-<div *ngIf="!finished else postFinished"
-  class="readme-create-post-content">
-  <div class="container d-flex flex-row align-items-start justify-content-start mt-2">
-    <div class="readme-user-avatar">
-      <app-user-avatar></app-user-avatar>
-    </div>
-    <div class="ml-2">
-      <textarea class="readme-post-textarea"
-        rows="10"
-        placeholder="O que você está pensando?"
-      ></textarea>
-      <mat-divider></mat-divider>
-      <div *ngIf="selectedBooks.length"
-        class="mt-2">
-        <span>Mencionando</span>&nbsp;
-        <span *ngFor="let book of selectedBooks; index as i">
-          <strong>{{ book.title }}</strong>
-          <span *ngIf="selectedBooks.length > 1 && i < (selectedBooks.length - 1)">
-            {{ i < (selectedBooks.length - 2) ? ', ' : ' e ' }}
+  <div class="readme-create-post-content">
+    <div class="container d-flex flex-row align-items-start justify-content-start mt-2">
+      <div class="readme-user-avatar">
+        <app-user-avatar></app-user-avatar>
+      </div>
+      <div class="ml-2">
+        <textarea class="readme-post-textarea"
+          rows="10"
+          placeholder="O que você está pensando?"
+        ></textarea>
+        <mat-divider></mat-divider>
+        <div *ngIf="selectedBooks.length"
+          class="mt-2">
+          <span>Mencionando</span>&nbsp;
+          <span *ngFor="let book of selectedBooks; index as i">
+            <strong>{{ book.title }}</strong>
+            <span *ngIf="selectedBooks.length > 1 && i < (selectedBooks.length - 1)">
+              {{ i < (selectedBooks.length - 2) ? ', ' : ' e ' }}
+            </span>
           </span>
-        </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>
 
 <ng-template #postFinished>
   <div class="readme-checkmark">
