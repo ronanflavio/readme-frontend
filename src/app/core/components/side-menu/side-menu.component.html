@@ -29,9 +29,26 @@
   </div>
 </div>
 
-<mat-selection-list [multiple]="false">
-  <mat-list-option *ngFor="let menu of menuItems">
-    <mat-icon mat-list-icon class="material-icons-outlined">{{ menu.icon }}</mat-icon>
-    <span>{{ menu.name }}</span>
-  </mat-list-option>
-</mat-selection-list>
+<mat-divider></mat-divider>
+
+<mat-action-list>
+  <button *ngFor="let menu of menuItems"
+    mat-list-item
+    type="button">
+    <mat-icon mat-list-icon class="material-icons-outlined">
+      {{ menu.icon }}
+    </mat-icon>
+    <span class="readme-action-text">{{ menu.name }}</span>
+  </button>
+</mat-action-list>
+
+<mat-divider></mat-divider>
+
+<mat-action-list>
+  <button mat-list-item (click)="logout()">
+    <mat-icon mat-list-icon class="material-icons-outlined">logout</mat-icon>
+    <span class="readme-action-text">
+      {{ exiting ? 'Saindo...' : 'Sair' }}
+    </span>
+  </button>
+</mat-action-list>

@@ -20,21 +20,28 @@
       </div>
     </div>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>E-mail ou nome de usuário</mat-label>
-      <input matInput
-        type="email">
-    </mat-form-field>
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>E-mail ou nome de usuário</mat-label>
+        <input matInput
+          formControlName="email"
+          type="email">
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Senha</mat-label>
-      <input matInput
-        type="password">
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Senha</mat-label>
+        <input matInput
+          formControlName="password"
+          type="password">
+      </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" class="w-100 mb-3">
-      Continuar
-    </button>
+      <button mat-raised-button color="primary"
+        type="submit"
+        class="w-100 mb-3"
+        [disabled]="loading">
+        {{ loading ? 'Carregando...' : 'Continuar' }}
+      </button>
+    </form>
 
     <div class="w-100 text-center">
       <a href="javascript:void(0);" >

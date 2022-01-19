@@ -1,5 +1,9 @@
-mat-selection-list {
-  mat-list-option {
+mat-action-list {
+  button {
     font-size: 0.9rem;
+
+    .readme-action-text {
+      margin-left: 8px;
+    }
   }
 }
