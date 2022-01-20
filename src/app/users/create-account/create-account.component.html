@@ -1,0 +1,87 @@
+<app-generic-header
+  title="Crie sua conta"
+  [iconBefore]="step > 1 ? 'west' : ''"
+  (beforeClicked)="backStep()"
+></app-generic-header>
+
+<div class="readme-signup-content d-flex align-items-center justify-content-center">
+  <div class="container">
+
+    <ng-container *ngIf="step === 1">
+      <button mat-raised-button type="button" class="w-100 mb-4">
+        <i class="fab fa-facebook"></i>
+        <span class="ml-3">Registrar-se com o Facebook</span>
+      </button>
+
+      <div class="d-flex align-items-center justify-content-center pb-4">
+        <div class="readme-signup-line">
+          <mat-divider></mat-divider>
+        </div>
+        <span class="mx-2">ou</span>
+        <div class="readme-signup-line">
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+
+      <form [formGroup]="formStepOne" (ngSubmit)="finishStepOne()">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Nome</mat-label>
+          <input matInput
+            formControlName="name"
+            type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>E-mail</mat-label>
+          <input matInput
+            formControlName="email"
+            type="email">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary"
+          type="submit"
+          class="w-100 mb-3"
+          [disabled]="formStepOne.invalid">
+          Continuar
+        </button>
+      </form>
+
+      <div class="w-100 text-center mt-3">
+        <span>Já tem uma conta?</span>
+        <a href="javascript:void(0);" routerLink="/users/login">
+          Faça login
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="step === 2">
+      <form [formGroup]="formStepTwo" (ngSubmit)="finishStepTwo()">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Nome de usuário</mat-label>
+          <input matInput
+            formControlName="username"
+            type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Senha</mat-label>
+          <input matInput
+            formControlName="password"
+            type="password">
+        </mat-form-field>
+
+        <mat-checkbox class="mb-3"
+          formControlName="terms_of_service">
+          Concordo com os termos e política
+        </mat-checkbox>
+
+        <button mat-raised-button color="primary"
+          type="submit"
+          class="w-100 mb-3"
+          [disabled]="loading || formStepTwo.invalid">
+          {{ loading ? 'Carregando...' : 'Finalizar' }}
+        </button>
+      </form>
+    </ng-container>
+  </div>
+</div>

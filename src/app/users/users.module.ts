@@ -4,11 +4,13 @@ import { UsersRoutingModule } from './users-routing.module';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../material/material.module';
 import { CoreModule } from '../core/core.module';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [
     CommonModule,
