@@ -1,0 +1,11 @@
+<div class="message">
+  <span>{{ data.message }}</span>
+  <button mat-icon-button
+    [ngSwitch]="data.type"
+    [class]="data.type"
+    (click)="close()">
+    <mat-icon *ngSwitchCase="'error'">cancel</mat-icon>
+    <mat-icon *ngSwitchCase="'success'">check_circle</mat-icon>
+    <mat-icon *ngSwitchCase="'info'">info</mat-icon>
+  </button>
+</div>

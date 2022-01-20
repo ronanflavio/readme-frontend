@@ -1,0 +1,19 @@
+@import 'variables';
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error {
+  color: var(--error-color);
+}
+
+.success {
+  color: var(--success-color);
+}
+
+.info {
+  color: #fff;
+}
