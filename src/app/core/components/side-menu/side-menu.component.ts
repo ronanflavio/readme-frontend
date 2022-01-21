@@ -14,7 +14,7 @@ export class SideMenuComponent implements OnInit {
 
   public exiting: boolean = false;
   public menuItems = [
-    { name: 'Perfil', icon: 'person', action: '' },
+    { name: 'Perfil', icon: 'person', action: '/users/profile' },
     { name: 'Estante', icon: 'auto_stories', action: '' },
     { name: 'Gêneros', icon: 'style', action: '' },
     { name: 'Favoritos', icon: 'favorite_outline', action: '' },
@@ -43,6 +43,11 @@ export class SideMenuComponent implements OnInit {
           this._router.navigate(['/users/login']);
         }
       );
+  }
+
+  public menuClicked(action: string): void {
+    this.close();
+    this._router.navigate([action]);
   }
 
 }

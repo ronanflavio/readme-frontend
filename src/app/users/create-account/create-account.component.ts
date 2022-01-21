@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { SnackService } from 'src/app/core/services/snack.service';
 import { UserService } from '../services/user.service';
 
@@ -27,11 +28,15 @@ export class CreateAccountComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _userService: UserService,
+    private _authService: AuthService,
     private _snackService: SnackService,
     private _router: Router,
   ) { }
 
   ngOnInit(): void {
+    if (this._authService.token) {
+      this._router.navigate(['/']);
+    }
   }
 
   public finishStepOne(): void {

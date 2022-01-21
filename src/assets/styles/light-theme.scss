@@ -12,8 +12,8 @@ $light-primary: mat-palette($mat-light-blue);
 $light-accent: mat-palette($mat-grey, 900);
 $light-warn: mat-palette($mat-red);
 
-$light-theme-background: ();
 $light-theme-foreground: ();
+$light-theme-background: ();
 
 @function light-theme($light-primary, $light-accent, $light-warn) {
   @return (

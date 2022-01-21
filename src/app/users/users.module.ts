@@ -5,12 +5,14 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../material/material.module';
 import { CoreModule } from '../core/core.module';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,
