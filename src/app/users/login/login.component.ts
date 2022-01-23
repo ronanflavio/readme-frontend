@@ -36,10 +36,20 @@ export class LoginComponent implements OnInit {
         .pipe(finalize(() => this.loading = false))
         .subscribe(
           () => {
+            this._getUserData();
             this._router.navigate(['/']);
           }
         );
     }
+  }
+
+  private _getUserData(): void {
+    this._authService.getUserData()
+      .subscribe(
+        (res: any) => {
+          this._authService.user = res;
+        }
+      );
   }
 
 }

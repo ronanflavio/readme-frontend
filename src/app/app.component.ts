@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
         this.showNavbar = this._showNavbarWhen.includes(value.urlAfterRedirects);
         this.showFooter = this._showFooterWhen.findIndex(e => value.urlAfterRedirects.includes(e)) >= 0;
       }
-    })
+    });
   }
 
 }

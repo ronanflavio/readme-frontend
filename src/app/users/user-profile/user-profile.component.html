@@ -1,1 +1,11 @@
-<p>user-profile works!</p>
+<main>
+  <ng-container *ngIf="userProfile; else showLoading">
+    <header #header>
+      <img [src]="userProfile.avatar">
+    </header>
+  </ng-container>
+
+  <ng-template #showLoading>
+    <app-loading></app-loading>
+  </ng-template>
+</main>

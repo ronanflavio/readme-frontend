@@ -4,7 +4,10 @@
       class="d-flex justify-content-center align-items-center"
       type="button"
       (click)="openSidenav()">
-      <app-user-avatar size="30px"></app-user-avatar>
+      <app-user-avatar
+        size="30px"
+        [avatar]="user.avatar"
+      ></app-user-avatar>
     </button>
     <span>read.me</span>
     <button mat-icon-button

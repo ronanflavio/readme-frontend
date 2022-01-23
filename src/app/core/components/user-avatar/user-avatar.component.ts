@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UserAvatarComponent implements OnInit {
 
   @Input() size: string = '30px';
+  @Input() avatar!: string;
 
   constructor() { }
 
