@@ -1,7 +1,10 @@
 <main>
   <ng-container *ngIf="userProfile; else showLoading">
     <header #header>
-      <img [src]="userProfile.avatar">
+      <app-user-avatar
+        size="50px"
+        [avatar]="userProfile.avatar"
+      ></app-user-avatar>
     </header>
   </ng-container>
 

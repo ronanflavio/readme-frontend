@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, delay, Observable, of } from 'rxjs';
 import { USER_DATA } from '../mock/user-data.mock';
+import { UserData } from '../models/user-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +35,17 @@ export class AuthService {
     return localStorage.getItem('auth_token');
   }
 
-  get user(): any {
+  get user(): UserData {
     const user = localStorage.getItem('user_data');
     return user ? JSON.parse(user) : null;
+  }
+
+  get userObservable(): Observable<UserData> {
+    const user = localStorage.getItem('user_data');
+    if (user) {
+      this.user = JSON.parse(user);
+    }
+    return this._user.asObservable();
   }
 
   public logout(): Observable<null> {
