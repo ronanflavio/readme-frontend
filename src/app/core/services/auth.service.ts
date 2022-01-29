@@ -8,12 +8,12 @@ import { UserData } from '../models/user-data.model';
 })
 export class AuthService {
 
-  private _token = new BehaviorSubject<string|null>(null);
+  private _token = new BehaviorSubject<string | null>(null);
   private _user = new BehaviorSubject<any>(null);
 
   constructor() { }
 
-  set token(token: string|null) {
+  set token(token: string | null) {
     this._token.next(token);
     if (!token) {
       localStorage.removeItem('auth_token');
@@ -22,7 +22,7 @@ export class AuthService {
     }
   }
 
-  set user(user: any) {
+  set authUser(user: any) {
     this._user.next(user);
     if (!user) {
       localStorage.removeItem('user_data');
@@ -31,19 +31,19 @@ export class AuthService {
     }
   }
 
-  get token(): string|null {
+  get token(): string | null {
     return localStorage.getItem('auth_token');
   }
 
-  get user(): UserData {
+  get authUser(): UserData {
     const user = localStorage.getItem('user_data');
     return user ? JSON.parse(user) : null;
   }
 
-  get userObservable(): Observable<UserData> {
+  public authUserObservable(): Observable<UserData> {
     const user = localStorage.getItem('user_data');
     if (user) {
-      this.user = JSON.parse(user);
+      this.authUser = JSON.parse(user);
     }
     return this._user.asObservable();
   }

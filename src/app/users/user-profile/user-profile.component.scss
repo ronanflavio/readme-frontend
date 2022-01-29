@@ -1,0 +1,18 @@
+@import 'variables';
+
+.readme-content {
+  margin-top: var(--header-height);
+
+  .readme-user-real-name {
+    font-weight: 600;
+  }
+}
+
+::ng-deep .mat-tab-label {
+  width: 50%;
+}
+
+::ng-deep .mat-tab-nav-bar,
+::ng-deep .mat-tab-header {
+  border-bottom: 1px solid var(--shaded-background);
+}

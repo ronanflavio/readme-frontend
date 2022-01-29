@@ -1,0 +1,40 @@
+<div class="readme-post-content">
+  <div class="mb-2 d-flex align-items-center justify-content-between">
+    <a href="javascript:void(0);" class="d-flex flex-row">
+      <div class="readme-post-avatar mr-2">
+        <img [src]="user.avatar">
+      </div>
+      <div class="d-flex flex-column justify-content-center">
+        <strong>{{ user.name }}</strong>
+        <span class="readme-post-user-meta d-flex flex-row">
+          <span>@{{ user.username }}</span>
+          <span class="mr-1 ml-1">·</span>
+          <span>{{ post.datetime | elapsedTime }}</span>
+        </span>
+      </div>
+    </a>
+  </div>
+  <div class="mb-2">
+    <span [innerHtml]="post.message"
+      [class.readme-post-description-short]="post.truncate"
+    ></span>
+    <a href="javascript:void(0);"
+      class="readme-post-read-more-button"
+      [hidden]="!post.truncate"
+      (click)="readMore(post)">ler mais</a>
+  </div>
+  <div class="readme-post-books">
+    <div *ngFor="let book of post.books"
+      class="readme-post-book-card"
+      [class.readme-post-book-reviewed]="post.review">
+      <a href="javascript:vdoi(0);"
+        routerLink="/books/{{ book.id }}/details">
+        <img [src]="book.image">
+        <div class="readme-post-book-description">
+          <div class="readme-post-book-line">{{ book.title }}</div>
+          <div class="readme-post-book-line">{{ book.authors[0] }}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

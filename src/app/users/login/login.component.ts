@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     this._authService.getUserData()
       .subscribe(
         (res: any) => {
-          this._authService.user = res;
+          this._authService.authUser = res;
         }
       );
   }

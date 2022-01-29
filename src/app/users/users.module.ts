@@ -6,13 +6,15 @@ import { MaterialModule } from '../material/material.module';
 import { CoreModule } from '../core/core.module';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserPostComponent } from './user-profile/user-post/user-post.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     CreateAccountComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserPostComponent
   ],
   imports: [
     CommonModule,

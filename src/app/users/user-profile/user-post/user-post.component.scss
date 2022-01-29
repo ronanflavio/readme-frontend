@@ -1,0 +1,69 @@
+@import 'variables';
+
+.readme-post-content {
+  display: block;
+  overflow-y: hidden;
+
+  .readme-post-avatar {
+    min-width: 45px;
+    height: 45px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      display: flex;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .readme-post-user-meta {
+    font-size: 0.8rem;
+  }
+
+  .readme-post-description-short {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .readme-post-books {
+    width: auto;
+    height: 190px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .readme-post-book-card {
+      flex: 0 0 auto;
+      padding: 0 4px;
+      width: 110px;
+
+      &.readme-post-book-reviewed {
+        width: 100%;
+        text-align: center;
+      }
+
+      img {
+        border-radius: 8px;
+      }
+
+      .readme-post-book-description {
+        line-height: 1.2;
+        font-size: 0.7rem;
+
+        .readme-post-book-line {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+}

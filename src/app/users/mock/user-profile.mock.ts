@@ -4,7 +4,7 @@ export const USER_PROFILE: UserProfile = {
   id: 'asfas776786a87sf',
   name: 'Juscelino Kubitschek',
   username: 'juscelinok',
-  avatar: '',
+  avatar: 'https://i.pravatar.cc/50?u=profilepic',
   genres: [
     'Ficcção científica',
     'Terror',

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -18,7 +19,8 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private _userService: UserService,
     private _authService: AuthService,
-    private _route: ActivatedRoute
+    private _location: Location,
+    private _route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -26,9 +28,13 @@ export class UserProfileComponent implements OnInit {
       const userId = params.get('id');
       this._userId = userId
         ? userId
-        : this._authService.user.id;
+        : this._authService.authUser.id;
       this._loadUserProfile();
     });
+  }
+
+  public back(): void {
+    this._location.back();
   }
 
   private _loadUserProfile(): void {
@@ -37,6 +43,7 @@ export class UserProfileComponent implements OnInit {
         .subscribe(
           (res: UserProfile) => {
             this.userProfile = res;
+            console.log(this.userProfile);
           }
         )
     }

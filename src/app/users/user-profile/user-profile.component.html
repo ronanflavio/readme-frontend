@@ -1,11 +1,62 @@
 <main>
   <ng-container *ngIf="userProfile; else showLoading">
-    <header #header>
-      <app-user-avatar
-        size="50px"
-        [avatar]="userProfile.avatar"
-      ></app-user-avatar>
-    </header>
+    <div class="readme-generic-header">
+      <app-generic-header
+        iconBefore="west"
+        title="@{{ userProfile.username }}"
+        (beforeClicked)="back()"
+      ></app-generic-header>
+    </div>
+
+    <div class="readme-content">
+      <header #header class="container">
+        <div class="d-flex align-items-center">
+          <app-user-avatar
+            size="50px"
+            [avatar]="userProfile.avatar"
+          ></app-user-avatar>
+          <div class="pl-3 w-100 d-flex align-items-center justify-content-around">
+            <div class="d-flex flex-column align-items-center">
+              <strong>{{ userProfile.followers }}</strong>
+              <span>Seguidores</span>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <strong>{{ userProfile.following }}</strong>
+              <span>Seguindo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column pt-2">
+          <span class="readme-user-real-name">{{ userProfile.name }}</span>
+          <ul>
+            <li *ngFor="let genre of userProfile.genres">
+              {{ genre }}
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <mat-tab-group>
+        <mat-tab label="Publicações">
+          <div *ngFor="let post of userProfile.posts.items">
+            <div class="container my-3">
+              <app-user-post
+                [user]="{ name: userProfile.name, username: userProfile.username, avatar: userProfile.avatar }"
+                [post]="post"
+              ></app-user-post>
+            </div>
+            <mat-divider class="my-2"></mat-divider>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Resenhas">
+          <div class="container my-3 text-center">
+            <h3>Não há nada aqui</h3>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </ng-container>
 
   <ng-template #showLoading>
