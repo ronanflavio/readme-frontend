@@ -18,6 +18,13 @@
       <router-outlet></router-outlet>
     </div>
 
+    <div [class.hidden]="status === onlineStatusCheck.ONLINE" class="readme-offline-message">
+      <span class="readme-offline-message-text">
+        <mat-icon>wifi_off</mat-icon>
+        <strong class="ml-2">Você está offline</strong>
+      </span>
+    </div>
+
     <app-footer *ngIf="showFooter"></app-footer>
 
   </mat-sidenav-content>

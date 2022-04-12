@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { OnlineStatusModule } from 'ngx-online-status';
 import { CoreModule } from './core/core.module';
 import { PostModule } from './posts/post.module';
 import { BooksModule } from './books/books.module';
@@ -25,6 +26,7 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     MaterialModule,
     CoreModule,
+    OnlineStatusModule,
     PostModule,
     BooksModule,
     UsersModule,

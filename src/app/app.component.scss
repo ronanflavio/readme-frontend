@@ -8,6 +8,24 @@
   padding-top: var(--header-height);
 }
 
+.readme-offline-message {
+  bottom: var(--footer-height);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .readme-offline-message-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: var(--warning-color);
+    color: #fff;
+  }
+}
+
 .readme-sidenav-container {
   position: absolute;
   top: 0;

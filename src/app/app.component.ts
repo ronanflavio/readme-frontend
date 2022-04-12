@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
+import { OnlineStatusService, OnlineStatusType } from 'ngx-online-status';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ export class AppComponent implements OnInit {
   public title = 'Read.me';
   public showNavbar: boolean = true;
   public showFooter: boolean = true;
+  public isOnline: boolean = true;
+  public onlineStatusCheck = OnlineStatusType;
+  public status = OnlineStatusType.ONLINE
 
   private _showNavbarWhen: string[] = [
     '/feed',
@@ -26,12 +30,17 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private _router: Router
-  ) {
-  }
+    private _router: Router,
+    private _onlineStatusService: OnlineStatusService
+  ) { }
 
   ngOnInit(): void {
     this._subscribeRouter();
+    this._onlineStatusService.status.subscribe(
+      (status: OnlineStatusType) => {
+        this.status = status;
+      }
+    )
   }
 
   public close() {
