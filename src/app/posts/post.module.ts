@@ -10,6 +10,7 @@ import { SelectedBooksComponent } from './create-post-books/selected-books/selec
 import { CreatePostMessageComponent } from './create-post-message/create-post-message.component';
 import { CreatePostButtonComponent } from './components/create-post-button/create-post-button.component';
 import { CheckmarkComponent } from './components/checkmark/checkmark.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CheckmarkComponent } from './components/checkmark/checkmark.component';
     CommonModule,
     PostRoutingModule,
     MaterialModule,
-    CoreModule
+    CoreModule,
+    InfiniteScrollModule
   ]
 })
 export class PostModule { }

@@ -1,4 +1,4 @@
-export interface Autocomplete {
+export class Autocomplete {
   id: string;
   title: string;
   image: string;

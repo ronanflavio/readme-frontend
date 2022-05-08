@@ -73,8 +73,17 @@ export class SearchBarComponent implements OnInit {
     this.loading = true;
     this._searchBarService.autocomplete(term)
       .pipe(finalize(() => this.loading = false))
-      .subscribe((response: Autocomplete[]) => {
-        this.bookAutocomplete = response
+      .subscribe((response: any[]) => {
+        const list: Autocomplete[] = [];
+        for (const item of response) {
+          const autocomplete = new Autocomplete();
+          autocomplete.id = item.id;
+          autocomplete.title = item.titulo;
+          autocomplete.image = null;
+          autocomplete.authors = [item.autor];
+          list.push(autocomplete);
+        }
+        this.bookAutocomplete = list;
       });
   }
 }

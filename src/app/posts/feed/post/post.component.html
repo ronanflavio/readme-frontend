@@ -2,14 +2,14 @@
   <div class="mb-2 d-flex align-items-center justify-content-between">
     <a href="javascript:void(0);" class="d-flex flex-row">
       <div class="readme-post-avatar mr-2">
-        <img [src]="post.user.avatar">
+        <img [src]="post.usuario.urlFoto">
       </div>
       <div class="d-flex flex-column justify-content-center">
-        <strong>{{ post.user.name }}</strong>
+        <strong>{{ post.usuario.nome }}</strong>
         <span class="readme-post-user-meta d-flex flex-row">
-          <span>@{{ post.user.username }}</span>
+          <span>@{{ post.usuario.usuario }}</span>
           <span class="mr-1 ml-1">·</span>
-          <span>{{ post.datetime | elapsedTime }}</span>
+          <span>{{ post.dataPostagem | elapsedTime }}</span>
         </span>
       </div>
     </a>
@@ -39,12 +39,12 @@
     </div>
   </div>
   <div class="mb-2">
-    <div *ngIf="post.review"
+    <div *ngIf="post.tipoPostagem === 'REVIEW'"
       class="readme-review mb-1">
       <mat-icon>star</mat-icon>
       <span>{{ post.review }}</span>
     </div>
-    <span [innerHtml]="post.message"
+    <span [innerHtml]="post.descricao"
       [class.readme-post-description-short]="post.truncate"
     ></span>
     <a href="javascript:void(0);"
@@ -53,15 +53,15 @@
       (click)="readMore(post)">ler mais</a>
   </div>
   <div class="readme-post-books">
-    <div *ngFor="let book of post.books"
+    <div *ngFor="let book of post.livros"
       class="readme-post-book-card"
-      [class.readme-post-book-reviewed]="post.review">
+      [class.readme-post-book-reviewed]="post.tipoPostagem === 'REVIEW'">
       <a href="javascript:vdoi(0);"
         routerLink="/books/{{ book.id }}/details">
-        <img [src]="book.image">
+        <img [src]="book.imagem">
         <div class="readme-post-book-description">
-          <div class="readme-post-book-line">{{ book.title }}</div>
-          <div class="readme-post-book-line">{{ book.authors[0] }}</div>
+          <div class="readme-post-book-line">{{ book.titulo }}</div>
+          <div class="readme-post-book-line">{{ book.autor }}</div>
         </div>
       </a>
     </div>

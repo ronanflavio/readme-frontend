@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "pwa": "http-server -p 8080 -c-1 dist/readme-frontend"
   },
   "private": true,
   "dependencies": {
@@ -20,8 +21,11 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@angular/service-worker": "~13.1.0",
     "fast-average-color": "^7.0.1",
     "moment": "^2.29.1",
+    "ngx-infinite-scroll": "^13.0.1",
+    "ngx-online-status": "^1.0.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

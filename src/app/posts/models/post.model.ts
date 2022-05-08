@@ -1,23 +1,30 @@
 export interface Post {
   id: string,
-  user: PostUser,
-  books: PostBook[],
-  message: string,
-  datetime: string,
+  tipoPostagem: string,
+  descricao: string,
+  usuario: PostUser,
+  livros: PostBook[],
+  dataPostagem: string,
   review: number | null,
   truncate: boolean
 }
 
+export interface PostList {
+  pagina: number,
+  paginas: number,
+  postagens: Post[];
+}
+
 interface PostUser {
   id: string,
-  avatar: string,
-  name: string,
-  username: string,
+  urlFoto: string,
+  nome: string,
+  usuario: string,
 }
 
 interface PostBook {
   id: string,
-  image: string,
-  title: string,
-  authors: string[]
+  imagem: string,
+  titulo: string,
+  autor: string
 }

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ReplaySubject, takeUntil } from 'rxjs';
+import { finalize, ReplaySubject, takeUntil } from 'rxjs';
 import { Autocomplete } from 'src/app/core/models/autocomplete.model';
 import { PostService } from '../services/post.service';
 
@@ -13,6 +14,7 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
 
   public selectedBooks: Autocomplete[] = [];
   public finished: boolean = false;
+  public form: FormGroup;
 
   protected destroy$: ReplaySubject<void> = new ReplaySubject();
 
@@ -23,6 +25,9 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._subscribeSelectedBooks();
+    this.form = new FormGroup({
+      text: new FormControl(null, [Validators.required])
+    });
   }
 
   ngOnDestroy(): void {
@@ -34,10 +39,15 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
   }
 
   public finish(): void {
-    this.finished = true;
-    setTimeout(() => {
-      this._router.navigate(['/']);
-    }, 3000)
+    if (this.form.valid) {
+      this._postService.post(this._getBody())
+        .pipe(finalize(() => this.finished = true))
+        .subscribe(
+          () => {
+            this._router.navigate(['/']);
+          }
+        );
+    }
   }
 
   private _subscribeSelectedBooks(): void {
@@ -49,5 +59,15 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
           this._router.navigate(['/post/create/books']);
         }
       });
+  }
+
+  private _getBody(): any {
+    return {
+      livros: this.selectedBooks.map(m => m.id),
+      descricao: this.form.controls['text'].value,
+      nota: null,
+      tipoPostagem: 'RESENHA',
+      usuarioPostagem: '61538413-d4fe-48a9-8450-9978b1221ae9'
+    }
   }
 }
