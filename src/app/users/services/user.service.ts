@@ -17,4 +17,8 @@ export class UserService {
   public getUser(id: string): Observable<UserProfile> {
     return of(USER_PROFILE).pipe(delay(1000));
   }
+
+  public follow(id: string): Observable<null> {
+    return of(null).pipe(delay(1000));
+  }
 }

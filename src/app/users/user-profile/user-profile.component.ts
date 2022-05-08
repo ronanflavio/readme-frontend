@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UserProfile } from '../models/user-profile.model';
 import { UserService } from '../services/user.service';
@@ -13,6 +14,7 @@ import { UserService } from '../services/user.service';
 export class UserProfileComponent implements OnInit {
 
   public userProfile?: UserProfile;
+  public selfProfile: boolean;
 
   private _userId?: string|null;
 
@@ -29,6 +31,7 @@ export class UserProfileComponent implements OnInit {
       this._userId = userId
         ? userId
         : this._authService.authUser.id;
+      this.selfProfile = this._userId === this._authService.authUser.id;
       this._loadUserProfile();
     });
   }
@@ -37,15 +40,35 @@ export class UserProfileComponent implements OnInit {
     this._location.back();
   }
 
+  public toggleFollow(): void {
+    this._setFollowingProperties();
+    this._userService.follow(this._userId)
+      .pipe(take(1))
+      .subscribe({
+        error: (error) => {
+          this._setFollowingProperties();
+          console.error(error)
+        }
+      });
+  }
+
   private _loadUserProfile(): void {
     if (this._userId) {
       this._userService.getUser(this._userId)
         .subscribe(
           (res: UserProfile) => {
             this.userProfile = res;
-            console.log(this.userProfile);
           }
         )
+    }
+  }
+
+  private _setFollowingProperties(): void {
+    this.userProfile.imFollowing = !this.userProfile.imFollowing;
+    if (this.userProfile.imFollowing) {
+      this.userProfile.followers++;
+    } else {
+      this.userProfile.followers--;
     }
   }
 

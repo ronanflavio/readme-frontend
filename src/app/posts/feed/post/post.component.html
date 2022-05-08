@@ -1,6 +1,6 @@
 <div class="readme-post-content">
   <div class="mb-2 d-flex align-items-center justify-content-between">
-    <a href="javascript:void(0);" class="d-flex flex-row">
+    <a href="javascript:void(0);" class="d-flex flex-row" [routerLink]="'/users/profile/' + post.usuario.id">
       <div class="readme-post-avatar mr-2">
         <img [src]="post.usuario.urlFoto">
       </div>

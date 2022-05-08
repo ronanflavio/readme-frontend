@@ -13,6 +13,7 @@ export const USER_PROFILE: UserProfile = {
   location: 'Belo Horizonte - MG',
   followers: 183,
   following: 214,
+  imFollowing: false,
   joinDate: '2019-07-07 11:25:16',
   posts: {
     page: 1,

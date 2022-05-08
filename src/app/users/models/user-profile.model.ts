@@ -7,6 +7,7 @@ export interface UserProfile {
   location: string;
   followers: number;
   following: number;
+  imFollowing: boolean;
   joinDate: string;
   posts: UserPostPagination;
 }
