@@ -1,7 +1,13 @@
 <app-loading *ngIf="loading; else showContent"></app-loading>
 
 <ng-template #showContent>
-  <div class="mb-2 mt-2">
+  <div class="mb-2 mt-2 h-100"
+    infinite-scroll
+    infiniteScrollContainer=".mat-drawer-content"
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="300"
+    [fromRoot]="true"
+    (scrolled)="loadMore()">
     <div *ngFor="let post of postItems" class="pt-2 pb-2">
       <div class="container">
         <app-post [post]="post"></app-post>

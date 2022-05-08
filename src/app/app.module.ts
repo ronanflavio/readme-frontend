@@ -3,6 +3,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { OnlineStatusModule } from 'ngx-online-status';
 import { CoreModule } from './core/core.module';
@@ -24,6 +25,7 @@ registerLocaleData(pt);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     CoreModule,
     OnlineStatusModule,
@@ -37,7 +39,7 @@ registerLocaleData(pt);
       registrationStrategy: 'registerWhenStable:30000'
     }),
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
