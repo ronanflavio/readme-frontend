@@ -10,7 +10,7 @@ export class BookService {
 
   constructor() { }
 
-  getBookDetails(): Observable<BookDetails> {
+  getBookDetails(id: string): Observable<BookDetails> {
     return of(BOOK_DETAILS).pipe(delay(1000));
   }
 }

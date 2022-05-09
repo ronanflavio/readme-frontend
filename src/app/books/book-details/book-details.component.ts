@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs';
 import { BookDetails } from '../models/book-details.model';
 import { BookService } from '../services/book.service';
@@ -16,13 +17,19 @@ export class BookDetailsComponent implements OnInit {
   public bookDetails!: BookDetails;
   public loading: boolean = true;
 
+  private _bookId: string;
+
   constructor(
     private _location: Location,
+    private _route: ActivatedRoute,
     private _bookService: BookService
   ) { }
 
   ngOnInit(): void {
-    this._getBookDetails();
+    this._route.paramMap.subscribe((params) => {
+      this._bookId = params.get('id');
+      this._getBookDetails();
+    })
   }
 
   public redirectBack(): void {
@@ -30,7 +37,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   private _getBookDetails(): void {
-    this._bookService.getBookDetails()
+    this._bookService.getBookDetails(this._bookId)
       .pipe(finalize(() => this.loading = false))
       .subscribe((response: BookDetails) => {
         this.bookDetails = this._prepareBookReviews(response);

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreatePostBooksComponent } from './create-post-books/create-post-books.component';
 import { CreatePostMessageComponent } from './create-post-message/create-post-message.component';
+import { CreateReviewComponent } from './create-review/create-review.component';
 import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'post/create/message',
     component: CreatePostMessageComponent
+  },
+  {
+    path: 'review/create/:bookId',
+    component: CreateReviewComponent
   }
 ];
 

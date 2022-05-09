@@ -11,6 +11,7 @@ import { CreatePostMessageComponent } from './create-post-message/create-post-me
 import { CreatePostButtonComponent } from './components/create-post-button/create-post-button.component';
 import { CheckmarkComponent } from './components/checkmark/checkmark.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CreateReviewComponent } from './create-review/create-review.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     SelectedBooksComponent,
     CreatePostMessageComponent,
     CreatePostButtonComponent,
-    CheckmarkComponent
+    CheckmarkComponent,
+    CreateReviewComponent
   ],
   imports: [
     CommonModule,

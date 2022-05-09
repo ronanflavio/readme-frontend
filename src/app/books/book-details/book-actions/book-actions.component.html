@@ -1,25 +1,32 @@
 <div class="readme-book-actions">
   <button mat-mini-fab
     color="default"
+    class="mx-2"
     (click)="interaction.favorite = !interaction.favorite">
     <mat-icon [color]="interaction.favorite ? 'primary' : ''">
       {{ interaction.favorite ? 'favorite' : 'favorite_bordered' }}
     </mat-icon>
   </button>
+
+  <button mat-mini-fab
+    color="default"
+    class="mx-2"
+    (click)="interaction.own = !interaction.own">
+    <mat-icon
+      [color]="interaction.own ? 'primary' : ''"
+      [class.material-icons-outlined]="!interaction.own">
+      library_add
+    </mat-icon>
+  </button>
+
   <button mat-mini-fab
     type="button"
     color="accent"
-    class="readme-book-add-button"
+    class="readme-book-add-button mx-2"
     [matMenuTriggerFor]="menu">
     <mat-icon>add</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon [color]="interaction.own ? 'primary' : null">
-        {{ interaction.own ? 'check_circle' : 'radio_button_unchecked' }}
-      </mat-icon>
-      <span>Tenho</span>
-    </button>
     <button mat-menu-item>
       <mat-icon [color]="interaction.read ? 'primary' : null">
         {{ interaction.read ? 'check_circle' : 'radio_button_unchecked' }}
