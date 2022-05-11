@@ -19,9 +19,9 @@ export class PostService {
   ) { }
 
   public getFeed(page: number): Observable<any> {
-    return of(POST_LIST).pipe(delay(500));
-    // const endpoint = this._api + `/postagens?pagina=${page}&tamanho=3`;
-    // return this._http.get(endpoint);
+    // return of(POST_LIST).pipe(delay(500));
+    const endpoint = this._api + `/postagens?pagina=${page}&tamanho=3`;
+    return this._http.get(endpoint);
   }
 
   public getSelectedBooks(): Observable<Autocomplete[]> {

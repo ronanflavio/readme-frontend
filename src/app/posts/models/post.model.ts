@@ -15,16 +15,16 @@ export interface PostList {
   postagens: Post[];
 }
 
-interface PostUser {
+export interface PostUser {
   id: string,
   urlFoto: string,
   nome: string,
   usuario: string,
 }
 
-interface PostBook {
+export interface PostBook {
   id: string,
-  imagem: string,
+  fotoUrl: string,
   titulo: string,
   autor: string
 }

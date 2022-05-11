@@ -24,10 +24,6 @@
           <span>Não tenho interesse nisso</span>
         </button>
         <button mat-menu-item type="button">
-          <mat-icon class="material-icons-outlined">person_remove_alt_1</mat-icon>
-          <span>Deixar de seguir</span>
-        </button>
-        <button mat-menu-item type="button">
           <mat-icon class="material-icons-outlined">volume_off</mat-icon>
           <span>Silenciar usuário</span>
         </button>
@@ -39,7 +35,7 @@
     </div>
   </div>
   <div class="mb-2">
-    <div *ngIf="post.tipoPostagem === 'REVIEW'"
+    <div *ngIf="post.tipoPostagem === 'RESENHA'"
       class="readme-review mb-1">
       <mat-icon>star</mat-icon>
       <span>{{ post.review }}</span>
@@ -55,10 +51,10 @@
   <div class="readme-post-books">
     <div *ngFor="let book of post.livros"
       class="readme-post-book-card"
-      [class.readme-post-book-reviewed]="post.tipoPostagem === 'REVIEW'">
+      [class.readme-post-book-reviewed]="post.tipoPostagem === 'RESENHA'">
       <a href="javascript:vdoi(0);"
         routerLink="/books/{{ book.id }}/details">
-        <img [src]="book.imagem">
+        <img [src]="book.fotoUrl" class="readme-post-image">
         <div class="readme-post-book-description">
           <div class="readme-post-book-line">{{ book.titulo }}</div>
           <div class="readme-post-book-line">{{ book.autor }}</div>

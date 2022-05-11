@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { BookDetails } from 'src/app/books/models/book-details.model';
 import { BookService } from 'src/app/books/services/book.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { UserService } from 'src/app/users/services/user.service';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -25,6 +27,7 @@ export class CreateReviewComponent implements OnInit {
   constructor(
     private _bookService: BookService,
     private _postService: PostService,
+    private _authSerivce: AuthService,
     private _route: ActivatedRoute,
     private _location: Location,
     private _router: Router
@@ -88,8 +91,8 @@ export class CreateReviewComponent implements OnInit {
       livros: [this._bookId],
       descricao: this.form.controls['text'].value,
       nota: this.rate,
-      tipoPostagem: 'REVIEW',
-      usuarioPostagem: '61538413-d4fe-48a9-8450-9978b1221ae9'
+      tipoPostagem: 'RESENHA',
+      usuarioPostagem: this._authSerivce.authUser.id
     }
   }
 }

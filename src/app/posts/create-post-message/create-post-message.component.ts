@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize, ReplaySubject, takeUntil } from 'rxjs';
 import { Autocomplete } from 'src/app/core/models/autocomplete.model';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { UserService } from 'src/app/users/services/user.service';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -20,7 +22,8 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
 
   constructor(
     private _router: Router,
-    private _postService: PostService
+    private _postService: PostService,
+    private _authSerivce: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -66,8 +69,8 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
       livros: this.selectedBooks.map(m => m.id),
       descricao: this.form.controls['text'].value,
       nota: null,
-      tipoPostagem: 'RESENHA',
-      usuarioPostagem: '61538413-d4fe-48a9-8450-9978b1221ae9'
+      tipoPostagem: 'PUBLICACAO',
+      usuarioPostagem: this._authSerivce.authUser.id
     }
   }
 }
