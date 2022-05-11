@@ -1,14 +1,12 @@
 export interface UserProfile {
   id: string;
-  name: string;
-  avatar: string;
-  username: string;
-  genres: string[];
-  location: string;
-  followers: number;
-  following: number;
+  nome: string;
+  urlFoto: string;
+  usuario: string;
+  bio: string;
+  seguidores: number;
+  seguindo: number;
   imFollowing: boolean;
-  joinDate: string;
   posts: UserPostPagination;
 }
 

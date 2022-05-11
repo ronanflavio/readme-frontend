@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { environment } from 'src/environments/environment';
 import { UserProfile } from '../models/user-profile.model';
 import { UserService } from '../services/user.service';
 
@@ -42,7 +43,7 @@ export class UserProfileComponent implements OnInit {
 
   public toggleFollow(): void {
     this._setFollowingProperties();
-    this._userService.follow(this._userId)
+    this._userService.follow(this._authService.authUser.id, this._userId)
       .pipe(take(1))
       .subscribe({
         error: (error) => {
@@ -58,6 +59,7 @@ export class UserProfileComponent implements OnInit {
         .subscribe(
           (res: UserProfile) => {
             this.userProfile = res;
+            this.userProfile.urlFoto = `${environment.api}/${this.userProfile.urlFoto}`;
           }
         )
     }
@@ -66,9 +68,9 @@ export class UserProfileComponent implements OnInit {
   private _setFollowingProperties(): void {
     this.userProfile.imFollowing = !this.userProfile.imFollowing;
     if (this.userProfile.imFollowing) {
-      this.userProfile.followers++;
+      this.userProfile.seguidores++;
     } else {
-      this.userProfile.followers--;
+      this.userProfile.seguidores--;
     }
   }
 

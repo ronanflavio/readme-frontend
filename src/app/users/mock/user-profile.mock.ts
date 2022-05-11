@@ -2,19 +2,13 @@ import { UserProfile } from "../models/user-profile.model";
 
 export const USER_PROFILE: UserProfile = {
   id: 'asfas776786a87sf',
-  name: 'Juscelino Kubitschek',
-  username: 'juscelinok',
-  avatar: 'https://i.pravatar.cc/50?u=profilepic',
-  genres: [
-    'Ficcção científica',
-    'Terror',
-    'Romance'
-  ],
-  location: 'Belo Horizonte - MG',
-  followers: 183,
-  following: 214,
+  nome: 'Juscelino Kubitschek',
+  usuario: 'juscelinok',
+  urlFoto: 'https://i.pravatar.cc/50?u=profilepic',
+  bio: 'Eu gosto de livros policiais e de terror',
+  seguidores: 183,
+  seguindo: 214,
   imFollowing: false,
-  joinDate: '2019-07-07 11:25:16',
   posts: {
     page: 1,
     pageCount: 1,
