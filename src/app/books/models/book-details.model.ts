@@ -1,17 +1,13 @@
 export interface BookDetails {
   id: string;
-  title: string;
-  image: string;
-  authors: string[];
-  synopsis: string;
-  rating: BookRating;
+  titulo: string;
+  fotoUrl: string;
+  autor: string;
+  sinopse: string;
+  avaliacao: number;
+  quantidadeAvaliacao: number;
   interaction: BookInteraction;
   reviews?: BookReview[];
-}
-
-export interface BookRating {
-  value: number;
-  quantity: number;
 }
 
 export interface BookInteraction {

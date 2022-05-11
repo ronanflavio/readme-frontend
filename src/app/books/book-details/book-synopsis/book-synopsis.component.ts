@@ -18,8 +18,10 @@ export class BookSynopsisComponent implements OnInit {
   }
 
   private _prepareSynopsis(): void {
-    this.truncate = this.synopsis.length > 200;
-    this.synopsis = this.synopsis.replace(/\n/g, '<br>');
+    if (this.synopsis) {
+      this.truncate = this.synopsis.length > 200;
+      this.synopsis = this.synopsis.replace(/\n/g, '<br>');
+    }
   }
 
 }
