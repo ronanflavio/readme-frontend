@@ -7,6 +7,8 @@ import { SnackComponent } from '../components/snack/snack.component';
 })
 export class SnackService {
 
+  public static DEFAULT_ERROR_MESSAGE = 'Ops. Algo deu errado. Tente novamente mais tarde.';
+
   constructor(
     private _snack: MatSnackBar
   ) { }
