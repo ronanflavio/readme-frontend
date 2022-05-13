@@ -25,6 +25,14 @@
       </span>
     </div>
 
+    <button *ngIf="showInstallButton"
+      mat-raised-button color="primary"
+      class="readme-pwa-button"
+      (click)="addPwaToHomeScreen()">
+      <mat-icon class="mr-2">download</mat-icon>
+      Instalar aplicativo
+    </button>
+
     <app-footer *ngIf="showFooter"></app-footer>
 
   </mat-sidenav-content>
