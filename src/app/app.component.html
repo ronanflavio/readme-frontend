@@ -12,18 +12,19 @@
       (sidenavOpened)="sidenav.open()"
     ></app-header>
 
-    <div class="readme-content"
+    <div *ngIf="status === onlineStatusCheck.ONLINE; else offline"
+      class="readme-content"
       [class.readme-with-header]="showNavbar"
       [class.readme-with-footer]="showFooter">
       <router-outlet></router-outlet>
     </div>
 
-    <div [class.hidden]="status === onlineStatusCheck.ONLINE" class="readme-offline-message">
-      <span class="readme-offline-message-text">
+    <ng-template #offline>
+      <div class="readme-offline-message">
+        <span>Você está offline</span>
         <mat-icon>wifi_off</mat-icon>
-        <strong class="ml-2">Você está offline</strong>
-      </span>
-    </div>
+      </div>
+    </ng-template>
 
     <button *ngIf="showInstallButton"
       mat-raised-button color="primary"

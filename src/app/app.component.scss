@@ -37,6 +37,21 @@
     min-width: var(--sidenav-min-width);
   }
 
+  .readme-offline-message {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+
+    mat-icon {
+      zoom: 2;
+      margin-top: 18px;
+    }
+  }
+
   .readme-pwa-button {
     position: fixed;
     bottom: calc(var(--footer-height) + 12px);
