@@ -1,5 +1,5 @@
 <main>
-  <ng-container *ngIf="userProfile; else showLoading">
+  <ng-container *ngIf="userProfile; else showEmpty">
     <div class="readme-generic-header">
       <app-generic-header
         iconBefore="west"
@@ -16,14 +16,18 @@
             [avatar]="userProfile.urlFoto"
           ></app-user-avatar>
           <div class="pl-3 w-100 d-flex align-items-center justify-content-around">
-            <div class="d-flex flex-column align-items-center">
+            <a href="javascript:void(0);"
+              class="d-flex flex-column align-items-center"
+              [routerLink]="'/users/followers/' + userProfile.id">
               <strong>{{ userProfile.seguidores }}</strong>
               <span>Seguidores</span>
-            </div>
-            <div class="d-flex flex-column align-items-center">
+            </a>
+            <a href="javascript:void(0);"
+              class="d-flex flex-column align-items-center"
+              [routerLink]="'/users/following/' + userProfile.id">
               <strong>{{ userProfile.seguindo }}</strong>
               <span>Seguindo</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -36,18 +40,18 @@
             type="button"
             class="readme-follow-button"
             mat-flat-button
-            [color]="userProfile.imFollowing ? 'basic' : 'primary'"
-            [class.following]="userProfile.imFollowing"
+            [color]="userProfile.estouSeguindo ? 'basic' : 'primary'"
+            [class.following]="userProfile.estouSeguindo"
             (click)="toggleFollow()">
-            {{ userProfile.imFollowing ? 'Seguindo' : 'Seguir' }}
+            {{ userProfile.estouSeguindo ? 'Seguindo' : 'Seguir' }}
           </button>
         </div>
       </header>
 
       <mat-tab-group>
         <mat-tab label="Publicações">
-          <ng-container *ngIf="userProfile.posts; else emptyPosts">
-            <div *ngFor="let post of userProfile.posts.items">
+          <ng-container *ngIf="userPosts; else emptyPosts">
+            <div *ngFor="let post of userPosts">
               <div class="container my-3">
                 <app-user-post
                   [user]="{ name: userProfile.nome, username: userProfile.usuario, avatar: userProfile.urlFoto }"
@@ -68,7 +72,7 @@
     </div>
   </ng-container>
 
-  <ng-template #showLoading>
-    <app-loading></app-loading>
+  <ng-template #showEmpty>
+    <app-loading *ngIf="loading"></app-loading>
   </ng-template>
 </main>

@@ -15,7 +15,12 @@
     </a>
   </div>
   <div class="mb-2">
-    <span [innerHtml]="post.message"
+    <div *ngIf="post.tipoPostagem === 'RESENHA'"
+      class="readme-review mb-1">
+      <mat-icon>star</mat-icon>
+      <span>{{ post.nota }}</span>
+    </div>
+    <span [innerHtml]="post.descricao"
       [class.readme-post-description-short]="post.truncate"
     ></span>
     <a href="javascript:void(0);"
@@ -24,15 +29,15 @@
       (click)="readMore(post)">ler mais</a>
   </div>
   <div class="readme-post-books">
-    <div *ngFor="let book of post.books"
+    <div *ngFor="let book of post.livros"
       class="readme-post-book-card"
-      [class.readme-post-book-reviewed]="post.review">
+      [class.readme-post-book-reviewed]="post.tipoPostagem === 'RESENHA'">
       <a href="javascript:vdoi(0);"
         routerLink="/books/{{ book.id }}/details">
-        <img [src]="book.image">
+        <img [src]="book.fotoUrl" class="readme-post-image">
         <div class="readme-post-book-description">
-          <div class="readme-post-book-line">{{ book.title }}</div>
-          <div class="readme-post-book-line">{{ book.authors[0] }}</div>
+          <div class="readme-post-book-line">{{ book.titulo }}</div>
+          <div class="readme-post-book-line">{{ book.autor }}</div>
         </div>
       </a>
     </div>

@@ -1,3 +1,5 @@
+import { Post } from "src/app/posts/models/post.model";
+
 export interface UserProfile {
   id: string;
   nome: string;
@@ -6,8 +8,8 @@ export interface UserProfile {
   bio: string;
   seguidores: number;
   seguindo: number;
-  imFollowing: boolean;
-  posts: UserPostPagination;
+  estouSeguindo: boolean;
+  posts: Post[];
 }
 
 interface UserPostPagination {
