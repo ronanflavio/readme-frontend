@@ -38,7 +38,7 @@
     <div *ngIf="post.tipoPostagem === 'RESENHA'"
       class="readme-review mb-1">
       <mat-icon>star</mat-icon>
-      <span>{{ post.review }}</span>
+      <span>{{ post.nota }}</span>
     </div>
     <span [innerHtml]="post.descricao"
       [class.readme-post-description-short]="post.truncate"

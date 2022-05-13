@@ -44,7 +44,7 @@ export const POST_LIST: PostList = {
           autor: 'Ronaldo'
         }
       ],
-      review: null,
+      nota: null,
       descricao: '<p>Suspendisse mollis erat eu dictum euismod. Quisque venenatis ante nisi, et faucibus mi consectetur ac. Proin quis felis sit amet nisi efficitur malesuada nec eu nisl. Nam sollicitudin odio ut bibendum aliquet.</p><p>Donec et consectetur nunc. Duis quis eros pretium. Vivamus vitae justo ullamcorper massa dapibus egestas. Aliquam vel eleifend lectus. Duis bibendum odio cursus sem rutrum viverra.</p>',
       dataPostagem: '2021-12-26 14:05:09',
       tipoPostagem: 'PUBLICACAO',
@@ -73,7 +73,7 @@ export const POST_LIST: PostList = {
           autor: 'Rotua Odicehnocsed'
         }
       ],
-      review: null,
+      nota: null,
       descricao: '<p>Suspendisse mollis erat eu dictum euismod. Quisque venenatis ante nisi, et faucibus mi consectetur ac.</p>',
       dataPostagem: '2021-12-26 11:19:12',
       tipoPostagem: 'PUBLICACAO',
@@ -96,7 +96,7 @@ export const POST_LIST: PostList = {
           autor: 'Lars Urish',
         }
       ],
-      review: 4,
+      nota: 4,
       descricao: '<p>Sed eget imperdiet arcu, cursus vulputate tellus. Cras elit massa, iaculis in vulputate vel, sodales id ligula. Pellentesque quis vehicula magna. Nullam eu mauris nisl. Aliquam consectetur vestibulum ante.</p><p>Integer tristique eros et lacus gravida iaculis. Nulla lacinia, leo id tincidunt convallis, diam odio tempus lacus, eget sodales orci magna sed massa. Nulla facilisi. Suspendisse fringilla ac quam vel dictum. Nulla mattis, tortor viverra cursus tempor, mi lorem condimentum leo</p>',
       dataPostagem: '2021-10-25 11:36:52',
       tipoPostagem: 'RESENHA',

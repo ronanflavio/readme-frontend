@@ -5,7 +5,7 @@ export interface Post {
   usuario: PostUser,
   livros: PostBook[],
   dataPostagem: string,
-  review: number | null,
+  nota: number | null,
   truncate: boolean
 }
 

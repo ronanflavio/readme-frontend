@@ -36,4 +36,14 @@ export class PostService {
     const endpoint = this._api + '/postagens';
     return this._http.post(endpoint, body);
   }
+
+  public getFromUser(userId: string): Observable<any> {
+    const endpoint = `${this._api}/postagens?pagina=1&tamanho=10&idUsuario=${userId}`;
+    return this._http.get(endpoint);
+  }
+
+  public getFromBook(bookId: string): Observable<any> {
+    const endpoint = `${this._api}/postagens?pagina=1&tamanho=10&idLivro=${bookId}`;
+    return this._http.get(endpoint);
+  }
 }
