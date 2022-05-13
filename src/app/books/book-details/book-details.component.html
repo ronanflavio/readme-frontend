@@ -1,8 +1,6 @@
 <main>
 
-  <app-loading *ngIf="loading; else showContent"></app-loading>
-
-  <ng-template #showContent>
+  <ng-container *ngIf="bookDetails; else loading" #showContent>
     <header #header>
 
       <div class="readme-book-header">
@@ -16,10 +14,6 @@
       <app-book-cover
         [bookImage]="bookDetails.fotoUrl"
       ></app-book-cover>
-
-      <!-- <app-book-actions
-        [interaction]="bookDetails.interaction"
-      ></app-book-actions> -->
 
       <div class="container d-flex flex-column">
         <h2 class="readme-book-title text-center">{{ bookDetails.titulo }}</h2>
@@ -48,13 +42,19 @@
     ></app-book-synopsis>
 
     <mat-divider class="mt-3 mb-3"></mat-divider>
+    <h3 class="text-center">Publicações e resenhas</h3>
+    <mat-divider class="mt-3 mb-3"></mat-divider>
 
-    <div *ngFor="let review of bookDetails.reviews">
+    <div *ngFor="let review of bookPosts">
       <app-book-review
         [review]="review"
       ></app-book-review>
       <mat-divider class="mt-3 mb-3"></mat-divider>
     </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <app-loading *ngIf="loading"></app-loading>
   </ng-template>
 
 </main>

@@ -8,7 +8,7 @@ import { BookReview } from '../../models/book-details.model';
 })
 export class BookReviewComponent implements OnInit {
 
-  @Input() review?: BookReview;
+  @Input() review?: any;
 
   constructor() { }
 
