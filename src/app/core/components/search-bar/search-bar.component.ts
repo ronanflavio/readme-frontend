@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, finalize } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Autocomplete } from '../../models/autocomplete.model';
 import { SearchBarService } from '../../services/search-bar.service';
 
@@ -79,7 +80,7 @@ export class SearchBarComponent implements OnInit {
           const autocomplete = new Autocomplete();
           autocomplete.id = item.id;
           autocomplete.title = item.titulo;
-          autocomplete.image = null;
+          autocomplete.image = `${environment.api}/${item.fotoUrl}`;
           autocomplete.authors = [item.autor];
           list.push(autocomplete);
         }
