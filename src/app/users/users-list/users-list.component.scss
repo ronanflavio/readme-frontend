@@ -1,0 +1,9 @@
+@import 'variables';
+
+.readme-content {
+  margin-top: var(--header-height);
+
+  mat-list-item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+}

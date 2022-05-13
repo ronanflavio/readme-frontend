@@ -7,6 +7,7 @@ import { CoreModule } from '../core/core.module';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserPostComponent } from './user-profile/user-post/user-post.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UserPostComponent } from './user-profile/user-post/user-post.component'
     LoginComponent,
     CreateAccountComponent,
     UserProfileComponent,
-    UserPostComponent
+    UserPostComponent,
+    UsersListComponent,
   ],
   imports: [
     CommonModule,

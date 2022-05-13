@@ -1,0 +1,25 @@
+<main>
+  <ng-container *ngIf="usersList; else showEmpty">
+    <div class="readme-generic-header">
+      <app-generic-header
+        iconBefore="west"
+        [title]="title"
+        (beforeClicked)="back()"
+      ></app-generic-header>
+    </div>
+
+    <div class="readme-content">
+      <mat-nav-list>
+        <mat-list-item *ngFor="let user of usersList" [routerLink]="'/users/profile/' + user.id">
+          <img matListAvatar [src]="user.urlFoto">
+          <h3 matLine>{{ user.nome }}</h3>
+          <span matLine>{{ user.usuario }}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </ng-container>
+
+  <ng-template #showEmpty>
+    <app-loading *ngIf="loading"></app-loading>
+  </ng-template>
+</main>
