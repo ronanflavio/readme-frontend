@@ -12,24 +12,24 @@
     <div class="mr-3">
       <app-user-avatar
         size="30px"
-        [avatar]="user.avatar"
+        [avatar]="user.urlFoto"
       ></app-user-avatar>
     </div>
     <div>
-      {{ user.name }}
+      {{ user.nome }}
     </div>
   </div>
 
   <div class="d-flex align-items-center justify-content-start">
     <a href="javascript:void(0);" class="mr-3">
       <strong class="mr-1">
-        {{ user.following }}
+        {{ user.seguindo }}
       </strong>
       <span>Seguindo</span>
     </a>
     <a href="javascript:void(0);">
       <strong class="mr-1">
-        {{ user.followers }}
+        {{ user.seguidores }}
       </strong>
       <span>Seguidores</span>
     </a>

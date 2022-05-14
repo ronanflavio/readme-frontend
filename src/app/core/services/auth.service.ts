@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, delay, Observable, of } from 'rxjs';
+import { UserService } from 'src/app/users/services/user.service';
+import { environment } from 'src/environments/environment';
 import { USER_DATA } from '../mock/user-data.mock';
 import { UserData } from '../models/user-data.model';
 
@@ -11,7 +13,9 @@ export class AuthService {
   private _token = new BehaviorSubject<string | null>(null);
   private _user = new BehaviorSubject<any>(null);
 
-  constructor() { }
+  constructor(
+    private _userService: UserService
+  ) { }
 
   set token(token: string | null) {
     this._token.next(token);
@@ -36,8 +40,12 @@ export class AuthService {
   }
 
   get authUser(): UserData {
-    const user = localStorage.getItem('user_data');
-    return user ? JSON.parse(user) : null;
+    const userJson = localStorage.getItem('user_data');
+    const user = userJson ? JSON.parse(userJson) : null;
+    if (user) {
+      user.urlFoto = `${environment.api}/${user.urlFoto}`;
+    }
+    return user;
   }
 
   public authUserObservable(): Observable<UserData> {
@@ -54,11 +62,11 @@ export class AuthService {
   }
 
   public login(form: any): Observable<string> {
-    this.token = 'asd6fa4sd89f7asdf6a4sd56f4as9d8f7asdfas';
+    this.token = 'fake-auth-token';
     return of(this.token).pipe(delay(1000));
   }
 
   public getUserData(): Observable<any> {
-    return of(USER_DATA).pipe(delay(500));
+    return this._userService.getUser(USER_DATA.id, USER_DATA.id);
   }
 }

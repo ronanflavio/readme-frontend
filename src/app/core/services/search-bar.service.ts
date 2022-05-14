@@ -17,8 +17,6 @@ export class SearchBarService {
   ) { }
 
   public autocomplete(term: string): Observable<any> {
-    // Building Microservice
-    // Implementando Domain-Driven Design
     const endpoint = this._api + '/livros?nomeLivro=' + term;
     return this._http.get(endpoint);
   }

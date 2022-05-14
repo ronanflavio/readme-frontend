@@ -1,9 +1,9 @@
 export interface UserData {
   id: string;
-  name: string;
-  username: string;
-  avatar: string;
+  nome: string;
+  usuario: string;
+  urlFoto: string;
   email: string;
-  following: number;
-  followers: number;
+  seguindo: number;
+  seguidores: number;
 }

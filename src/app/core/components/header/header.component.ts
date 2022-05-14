@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ReplaySubject, takeUntil } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { UserData } from '../../models/user-data.model';
 import { AuthService } from '../../services/auth.service';
 
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: UserData) => {
           this.user = res;
+          this.user.urlFoto = `${environment.api}/${this.user.urlFoto}`;
         }
       );
   }
