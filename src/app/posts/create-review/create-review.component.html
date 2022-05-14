@@ -8,12 +8,13 @@
       (nextClicked)="finish()"
     ></app-generic-header>
 
-    <form *ngIf="book else loading" [formGroup]="form" (ngSubmit)="finish()">
+    <form *ngIf="book else waiting" [formGroup]="form" (ngSubmit)="finish()">
       <div class="readme-create-post-content">
 
         <div class="d-flex align-items-center justify-content-center">
           <button *ngFor="let star of stars"
             mat-icon-button
+            type="button"
             (click)="setRate(star)">
             <mat-icon>{{ star <= rate ? 'star_rate' : 'star_outline' }}</mat-icon>
           </button>
@@ -47,9 +48,6 @@
     <app-loading></app-loading>
   </ng-template>
 
-  <ng-template #loading>
-    <app-loading></app-loading>
-  </ng-template>
 </ng-container>
 
 <ng-template #postFinished>
