@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private _getUserData(): void {
-    this._authService.authUserObservable()
+    this._authService.getUserData()
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (res: UserData) => {

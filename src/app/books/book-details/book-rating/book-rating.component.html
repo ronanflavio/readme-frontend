@@ -7,7 +7,7 @@
     <mat-icon>{{ getStarFill(5) }}</mat-icon>
   </div>
   <div class="readme-book-rating-text mat-caption">
-    <strong>{{ value }}</strong>&nbsp;
+    <strong>{{ value.toFixed(1) }}</strong>&nbsp;
     <span>({{ quantity | number:'':'pt' }} avaliações)</span>
   </div>
 </section>

@@ -49,9 +49,11 @@ export class AuthService {
   }
 
   public authUserObservable(): Observable<UserData> {
-    const user = localStorage.getItem('user_data');
-    if (user) {
-      this.authUser = JSON.parse(user);
+    const userJson = localStorage.getItem('user_data');
+    if (userJson) {
+      const user = JSON.parse(userJson);
+      user.urlFoto = `${environment.api}/${user.urlFoto}`;
+      this.authUser = user;
     }
     return this._user.asObservable();
   }
