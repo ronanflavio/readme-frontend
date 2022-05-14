@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { finalize, ReplaySubject, takeUntil } from 'rxjs';
 import { Autocomplete } from 'src/app/core/models/autocomplete.model';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { UserService } from 'src/app/users/services/user.service';
+import { SnackService } from 'src/app/core/services/snack.service';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -17,11 +17,13 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
   public selectedBooks: Autocomplete[] = [];
   public finished: boolean = false;
   public form: FormGroup;
+  public loading = false;
 
   protected destroy$: ReplaySubject<void> = new ReplaySubject();
 
   constructor(
     private _router: Router,
+    private _snackService: SnackService,
     private _postService: PostService,
     private _authSerivce: AuthService
   ) { }
@@ -43,13 +45,26 @@ export class CreatePostMessageComponent implements OnInit, OnDestroy {
 
   public finish(): void {
     if (this.form.valid) {
+      this.loading = true;
       this._postService.post(this._getBody())
-        .pipe(finalize(() => this.finished = true))
-        .subscribe(
-          () => {
+        .pipe(
+          finalize(() => {
+            this.finished = true;
+            this.loading = false;
+          })
+        )
+        .subscribe({
+          next: () => {
+            setTimeout(() => {
+              this._router.navigate(['/']);
+            }, 2000);
+          },
+          error: (error) => {
+            console.error(error);
             this._router.navigate(['/']);
+            this._snackService.error(SnackService.DEFAULT_ERROR_MESSAGE);
           }
-        );
+        });
     }
   }
 

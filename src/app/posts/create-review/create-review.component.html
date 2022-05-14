@@ -1,45 +1,51 @@
 <ng-container *ngIf="!finished else postFinished">
-  <app-generic-header
-    iconBefore="west"
-    iconNext="done"
-    title="Review"
-    (beforeClicked)="back()"
-    (nextClicked)="finish()"
-  ></app-generic-header>
+  <ng-container *ngIf="!loading else waiting">
+    <app-generic-header
+      iconBefore="west"
+      iconNext="done"
+      title="Review"
+      (beforeClicked)="back()"
+      (nextClicked)="finish()"
+    ></app-generic-header>
 
-  <form *ngIf="book else loading" [formGroup]="form" (ngSubmit)="finish()">
-    <div class="readme-create-post-content">
+    <form *ngIf="book else loading" [formGroup]="form" (ngSubmit)="finish()">
+      <div class="readme-create-post-content">
 
-      <div class="d-flex align-items-center justify-content-center">
-        <button *ngFor="let star of stars"
-          mat-icon-button
-          (click)="setRate(star)">
-          <mat-icon>{{ star <= rate ? 'star_rate' : 'star_outline' }}</mat-icon>
-        </button>
-      </div>
-      <div class="d-flex align-items-center justify-content-center">
-        <strong>{{ getRateName() }}</strong>
-      </div>
-
-      <div class="container d-flex flex-row align-items-start justify-content-start mt-2">
-        <div class="readme-user-avatar">
-          <app-user-avatar></app-user-avatar>
+        <div class="d-flex align-items-center justify-content-center">
+          <button *ngFor="let star of stars"
+            mat-icon-button
+            (click)="setRate(star)">
+            <mat-icon>{{ star <= rate ? 'star_rate' : 'star_outline' }}</mat-icon>
+          </button>
         </div>
-        <div class="ml-2">
-          <textarea formControlName="text"
-            class="readme-post-textarea"
-            rows="10"
-            placeholder="Diga algo sobre este livro"
-          ></textarea>
-          <mat-divider></mat-divider>
-          <div class="mt-2">
-            <span>Mencionando</span>&nbsp;
-            <strong>{{ book.titulo }}</strong>
+        <div class="d-flex align-items-center justify-content-center">
+          <strong>{{ getRateName() }}</strong>
+        </div>
+
+        <div class="container d-flex flex-row align-items-start justify-content-start mt-2">
+          <div class="readme-user-avatar">
+            <app-user-avatar></app-user-avatar>
+          </div>
+          <div class="ml-2">
+            <textarea formControlName="text"
+              class="readme-post-textarea"
+              rows="10"
+              placeholder="Diga algo sobre este livro"
+            ></textarea>
+            <mat-divider></mat-divider>
+            <div class="mt-2">
+              <span>Mencionando</span>&nbsp;
+              <strong>{{ book.titulo }}</strong>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </ng-container>
+
+  <ng-template #waiting>
+    <app-loading></app-loading>
+  </ng-template>
 
   <ng-template #loading>
     <app-loading></app-loading>

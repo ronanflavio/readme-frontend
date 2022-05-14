@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs';
+import { finalize, take } from 'rxjs';
 import { BookDetails } from 'src/app/books/models/book-details.model';
 import { BookService } from 'src/app/books/services/book.service';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -16,9 +16,10 @@ import { PostService } from '../services/post.service';
 })
 export class CreateReviewComponent implements OnInit {
 
+  public finished = false;
+  public loading = false;
   public book: BookDetails;
   public form: FormGroup;
-  public finished: boolean;
   public stars = [1,2,3,4,5];
   public rate = 5;
 
@@ -64,13 +65,19 @@ export class CreateReviewComponent implements OnInit {
 
   public finish(): void {
     if (this.form.valid) {
+      this.loading = true;
       this._postService.post(this._getBody())
+        .pipe(
+          finalize(() => {
+            this.finished = true;
+            this.loading = false;
+          })
+        )
         .subscribe({
           next: () => {
-            this._router.navigate(['/']);
-          },
-          complete: () => {
-            this.finished = true;
+            setTimeout(() => {
+              this._router.navigate(['/']);
+            }, 2000)
           }
         })
     }
@@ -83,7 +90,7 @@ export class CreateReviewComponent implements OnInit {
         next: (response) => {
           this.book = response;
         }
-      })
+      });
   }
 
   private _getBody(): any {
