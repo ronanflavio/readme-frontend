@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Post, PostUser } from 'src/app/posts/models/post.model';
 
 @Component({
   selector: 'app-user-post',
@@ -7,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class UserPostComponent implements OnInit {
 
-  @Input() post: any;
-  @Input() user: any;
+  @Input() post: Post;
+  @Input() user: PostUser;
 
   constructor() { }
 

@@ -54,7 +54,7 @@
             <div *ngFor="let post of userPosts">
               <div class="container my-3">
                 <app-user-post
-                  [user]="{ name: userProfile.nome, username: userProfile.usuario, avatar: userProfile.urlFoto }"
+                  [user]="userProfile"
                   [post]="post"
                 ></app-user-post>
               </div>

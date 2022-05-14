@@ -2,14 +2,14 @@
   <div class="mb-2 d-flex align-items-center justify-content-between">
     <a href="javascript:void(0);" class="d-flex flex-row">
       <div class="readme-post-avatar mr-2">
-        <img [src]="user.avatar">
+        <img [src]="user.urlFoto">
       </div>
       <div class="d-flex flex-column justify-content-center">
-        <strong>{{ user.name }}</strong>
+        <strong>{{ user.nome }}</strong>
         <span class="readme-post-user-meta d-flex flex-row">
-          <span>@{{ user.username }}</span>
+          <span>@{{ user.usuario }}</span>
           <span class="mr-1 ml-1">·</span>
-          <span>{{ post.datetime | elapsedTime }}</span>
+          <span>{{ post.dataPostagem | elapsedTime }}</span>
         </span>
       </div>
     </a>
