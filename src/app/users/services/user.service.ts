@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { USER_PROFILE } from '../mock/user-profile.mock';
-import { UserProfile } from '../models/user-profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +19,11 @@ export class UserService {
   }
 
   public getUser(id: string, authId: string): Observable<any> {
-    // return of(USER_PROFILE).pipe(delay(1000));
     const endpoint = `${this._api}/usuarios/${id}?me=${authId}`;
     return this._http.get(endpoint);
   }
 
   public follow(authId: string, userId: string): Observable<any> {
-    // return of(null).pipe(delay(1000));
     const endpoint = `${this._api}/usuarios/${userId}/seguidores`;
     return this._http.post(endpoint, {
       idUsuario: authId
